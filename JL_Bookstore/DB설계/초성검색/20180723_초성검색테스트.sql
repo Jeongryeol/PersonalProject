@@ -1,0 +1,1 @@
+SELECT func_chosung('°õµ¹ÀÌÇª¿ì'),func_chosung('´ëÇÑ¹Î±¹') FROM dual

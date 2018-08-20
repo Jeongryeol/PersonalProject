@@ -1,0 +1,1 @@
+grant create trigger to adm_book;
