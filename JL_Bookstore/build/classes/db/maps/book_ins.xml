@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 액션태그가 이름을 가질때, 그 이름에 해당하는 부분 -->
+<mapper namespace="bookMapper">
+	<!-- resultType은 필요없다. 입력|수정|삭제의 반환타입은 무조건 int임 ( 0 또는 1 ) -->
+	<insert id="deptInsert" parameterType="map">
+		INSERT INTO dept(deptno, dname, loc)
+		VALUES(#{deptno}, #{dname}, #{loc})
+	</insert>
+	<insert id="deptInsert2" parameterType="map">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			SELECT 5 no FROM dual
+		</selectKey>
+		INSERT INTO dept(deptno, dname, loc)
+		VALUES(#{deptno}, #{dname}, #{loc})
+	</insert>
+</mapper>

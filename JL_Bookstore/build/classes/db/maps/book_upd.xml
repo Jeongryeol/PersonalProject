@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 액션태그가 이름을 가질때, 그 이름에 해당하는 부분 -->
+<mapper namespace="bookMapper">
+	<update id="deptUpdate"
+			parameterType="map"
+			flushCache="true"
+			statementType="PREPARED"
+			timeout="20">
+		UPDATE dept
+		   SET DEPTNO=99
+		 WHERE dname = #{dname}
+	</update>
+</mapper>
