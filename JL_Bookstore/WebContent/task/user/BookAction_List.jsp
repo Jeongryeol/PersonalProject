@@ -2,21 +2,21 @@
     pageEncoding="EUC-KR"%>
 <%@page import="java.util.Map, java.util.List, java.util.HashMap"%>
 <%
-	//¼­ºí¸´À¸·ÎºÎÅÍ ¹ŞÀº °´Ã¼¸¦ ¿äÃ»°´Ã¼(request)ÀÇ  
+	//ì„œë¸”ë¦¿ìœ¼ë¡œë¶€í„° ë°›ì€ ê°ì²´ë¥¼ ìš”ì²­ê°ì²´(request)ì˜  
 	List<Map<String,Object>> rlist
 		= (List<Map<String,Object>>)request.getAttribute("output");
 	//out.print(rlist.size());
 	int size = 0;
-	if(rlist.size()!=0){//Á¶È¸°Ç¼ö°¡ 1°ÇÀÌ¶óµµ ÀÖÀ¸¸é
-		if(rlist.size()<6){//Á¶È¸°Ç¼ö°¡ 6°Ç ¹Ì¸¸ÀÌ¸é ±æÀÌ¸¦ 5Ä­À¸·Î
+	if(rlist.size()!=0){//ì¡°íšŒê±´ìˆ˜ê°€ 1ê±´ì´ë¼ë„ ìˆìœ¼ë©´
+		if(rlist.size()<6){//ì¡°íšŒê±´ìˆ˜ê°€ 6ê±´ ë¯¸ë§Œì´ë©´ ê¸¸ì´ë¥¼ 5ì¹¸ìœ¼ë¡œ
 			size = 5;			
-		}else if((rlist.size()>=6)&&(rlist.size()<10)){//Á¶È¸°Ç¼ö°¡ 6°ÇÀÌ»ó 10°Ç¹Ì¸¸ÀÏ¶§
+		}else if((rlist.size()>=6)&&(rlist.size()<10)){//ì¡°íšŒê±´ìˆ˜ê°€ 6ê±´ì´ìƒ 10ê±´ë¯¸ë§Œì¼ë•Œ
 			size = 10;
 		}
 	}
-	//Á¶È¸´ë»ó
+	//ì¡°íšŒëŒ€ìƒ
 	String category = null;
-	int b_no = 0;//È­¸é¿¡´Â Ãâ·ÂÇÏÁö ¾ÊÀ» ¿¹Á¤
+	int b_no = 0;//í™”ë©´ì—ëŠ” ì¶œë ¥í•˜ì§€ ì•Šì„ ì˜ˆì •
 	String b_name = null;
 	String author = null;
 	int price = 0;
@@ -27,27 +27,27 @@
 if(size>0){
 %>
 <div class="row">
-	<!-- div ÅÂ±×¾È¿¡ °ø°£À» ÇÒ´çÇÔ 3:6:3 -->
+	<!-- div íƒœê·¸ì•ˆì— ê³µê°„ì„ í• ë‹¹í•¨ 3:6:3 -->
 	<div class="col-md-3"></div>
 	<div class="col-md-6">
-	<!-- Á¶È¸°á°ú¸¦ ´ã´Â Å×ÀÌºí -->
+	<!-- ì¡°íšŒê²°ê³¼ë¥¼ ë‹´ëŠ” í…Œì´ë¸” -->
 	<table class="table table-striped table-condensed"><!-- style="width: 100px !important;" > -->
 		<!-- <tr>
-			<td><b>ºĞ·ù</b></td>
-			<td width="70%"><b>µµ¼­¸í</b></td>
-			<td><b>ÀúÀÚ</b></td>
-			<td width="30%" align="center"><b>Ã¥Ç¥Áö</b></td>
+			<td><b>ë¶„ë¥˜</b></td>
+			<td width="70%"><b>ë„ì„œëª…</b></td>
+			<td><b>ì €ì</b></td>
+			<td width="30%" align="center"><b>ì±…í‘œì§€</b></td>
 		</tr> -->
  <%	Map<String,Object> pMap = new HashMap<String,Object>();
-	//¹İº¹ÇØ¼­ Å×ÀÌºí ·Î¿ì »ı¼ºÇÏ±â
+	//ë°˜ë³µí•´ì„œ í…Œì´ë¸” ë¡œìš° ìƒì„±í•˜ê¸°
  	for(int i=0;i<rlist.size();i++){
 	 		 pMap = rlist.get(i);
  %>
 		<tr valign="middle">
 			<td width="70%" id="td_<%=i+1%>" onmouseover="getThumb('<%=pMap.get("B_IMG")%>')">
 				<%=pMap.get("B_NAME")%> <font color="grey">- <%=pMap.get("AUTHOR")%></font>
-			</td><!-- µµ¼­¸í -->
-			<%-- <td><%=pMap.get("AUTHOR") %></td> --%><!-- ÀúÀÚ¸í -->
+			</td><!-- ë„ì„œëª… -->
+			<%-- <td><%=pMap.get("AUTHOR") %></td> --%><!-- ì €ìëª… -->
 	<%	if(cnt==0){ %>
 			<td width="30%" align="center" rowspan="<%=size %>">
 				<div id="d_detail"></div>
@@ -56,9 +56,9 @@ if(size>0){
 		}//end : if
 	}//end : for
  	
- 	//Á¶È¸°Ç¼ö°¡ 5°Ç¹Ì¸¸ÀÌ¸é Ãß°¡ ·Î¿ì »ı¼ºÇÏ´Â Á¶°Ç¹®
-	if(rlist.size()<5){//¿¹:4°³
-		for(int i = 0;i<6-rlist.size();i++){//¿¹:0~1 < 6-4=2 ±îÁö ¹İº¹%>
+ 	//ì¡°íšŒê±´ìˆ˜ê°€ 5ê±´ë¯¸ë§Œì´ë©´ ì¶”ê°€ ë¡œìš° ìƒì„±í•˜ëŠ” ì¡°ê±´ë¬¸
+	if(rlist.size()<5){//ì˜ˆ:4ê°œ
+		for(int i = 0;i<6-rlist.size();i++){//ì˜ˆ:0~1 < 6-4=2 ê¹Œì§€ ë°˜ë³µ%>
 		<tr>
 			<td valign="top" onmouseover="getThumb('')">&nbsp;</td>
 			<!-- <td>&nbsp;</td> -->

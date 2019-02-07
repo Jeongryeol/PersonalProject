@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@192.168.0.234:1521:orcl11" />
+				<property name="username" value="ADM_BOOK" />
+				<property name="password" value="test0725" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="db/maps/mem_ins.xml"/><!-- 회원 입력업무 -->
+		<mapper resource="db/maps/book_sel.xml"/><!-- 도서 조회업무 -->
+		<mapper resource="db/maps/book_ins.xml"/><!-- 도서 입력업무 -->
+		<mapper resource="db/maps/book_upd.xml"/><!-- 도서 수정업무 -->
+		<mapper resource="db/maps/book_del.xml"/><!-- 도서 삭제업무 -->
+	</mappers>
+</configuration>

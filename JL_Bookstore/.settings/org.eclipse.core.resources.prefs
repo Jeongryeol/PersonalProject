@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//WebContent/task/Main.jsp=UTF-8
+encoding//WebContent/task/SignUp.jsp=UTF-8
+encoding//WebContent/task/user/BookAction_List.jsp=UTF-8
+encoding//WebContent/task/user/BookAction_List_json.jsp=UTF-8
+encoding//WebContent/task/user/BookSearch_Detail.jsp=UTF-8
+encoding//WebContent/task/user/BookSearch_Intro.jsp=UTF-8
+encoding//src/log4j.properties=UTF-8

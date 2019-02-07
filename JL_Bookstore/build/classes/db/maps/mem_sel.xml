@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bookMapperSEL">
+	<!-- 책이름과 저자명으로 조회하는 SQL문 -->
+	<select id="select_mem_name" resultType="map" parameterType="map">
+	      SELECT
+			   b_no B_NO
+			  ,b_name B_NAME
+			  ,author AUTHOR
+			  ,price PRICE
+			  ,b_img B_IMG
+		    FROM book_it
+	    <if test='userInput!=null and choMode.equals("N")'><!-- 초성모드OFF : 한글/영어(대문자) -->
+		   WHERE upper(b_name) LIKE '%'||#{userInput}||'%'
+			  OR upper(author) LIKE '%'||#{userInput}||'%'</if>
+	    <if test='userInput!=null and choMode.equals("Y")'><!-- 초성모드ON : 초성 -->
+    	   WHERE func_chosung(b_name) LIKE '%'||#{userInput}||'%'
+              OR func_chosung(author) LIKE '%'||#{userInput}||'%'</if>
+	</select>
+</mapper>

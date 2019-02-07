@@ -8,31 +8,31 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.Logger;
 
-//MapperConfig.xml¿¡ µî·ÏµÈ DB¿¡ Á¢¼ÓÇÏ´Â Á¤º¸¸¦ ¸ğµÎ ´ãÀº SQL¼¼¼ÇÀ» »ı¼ºÇØÁÖ´Â °øÅëÄÚµå
+//MapperConfig.xmlì— ë“±ë¡ëœ DBì— ì ‘ì†í•˜ëŠ” ì •ë³´ë¥¼ ëª¨ë‘ ë‹´ì€ SQLì„¸ì…˜ì„ ìƒì„±í•´ì£¼ëŠ” ê³µí†µì½”ë“œ
 public class DBConnection {
-	//·Î±×
+	//ë¡œê·¸
 	Logger logger = Logger.getLogger(DBConnection.class);
 	//MyBatis
-	String resource = "db/MapperConfig.xml";//Ä¿³Ø¼Ç¿¡ ÇÊ¿äÇÑ Á¤º¸¸¦ ´ãÀº xml¹®¼­
+	String resource = "db/MapperConfig.xml";//ì»¤ë„¥ì…˜ì— í•„ìš”í•œ ì •ë³´ë¥¼ ë‹´ì€ xmlë¬¸ì„œ
 	SqlSessionFactory sqlMapper = null;
 	SqlSession		  sqlSes	= null;
 
 	public SqlSession getConnection(){
-		logger.info("getConnection È£Ãâ ¼º°ø");
+		logger.info("getConnection í˜¸ì¶œ ì„±ê³µ");
 		
 		try {
-			//InputStream ´ë½Å Reader class»ç¿ë : ÇÑ±Û¹ÙÀÌÆ® ¶§¹®
-			Reader reader = null;//2byte´ÜÀ§·Î Ã³¸®ÇÏ´Â readerÅ¬·¡½º(ÇÑ±Û-2byte)
+			//InputStream ëŒ€ì‹  Reader classì‚¬ìš© : í•œê¸€ë°”ì´íŠ¸ ë•Œë¬¸
+			Reader reader = null;//2byteë‹¨ìœ„ë¡œ ì²˜ë¦¬í•˜ëŠ” readerí´ë˜ìŠ¤(í•œê¸€-2byte)
 			reader = Resources.getResourceAsReader(resource);
 	        sqlMapper = new SqlSessionFactoryBuilder().build(reader);
-	        sqlSes 	  = sqlMapper.openSession();//SqlSession »ı¼º
-	        reader.close();//ÀÚ¿ø¹İ³³
+	        sqlSes 	  = sqlMapper.openSession();//SqlSession ìƒì„±
+	        reader.close();//ìì›ë°˜ë‚©
 	        
 		}catch (Exception e) {
 			e.printStackTrace();
-			logger.info("SqlSession »ı¼º¿¡·¯");
+			logger.info("SqlSession ìƒì„±ì—ëŸ¬");
 		}
-		logger.info("getConnection Á¾·á");
+		logger.info("getConnection ì¢…ë£Œ");
 		return sqlSes;
 	}
 }

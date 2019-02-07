@@ -5,63 +5,63 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>JL±³º¸¹®°í :: µµ¼­°Ë»ö¼­ºñ½º</title>
-<!-- ¡ª¡ª¡ª[[HEAD style : css]]¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª -->
+<title>JLêµë³´ë¬¸ê³  :: ë„ì„œê²€ìƒ‰ì„œë¹„ìŠ¤</title>
+<!-- â€•â€•â€•[[HEAD style : css]]â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€• -->
 <style type="text/css">
 
 </style>
-<!-- ¡ª¡ª¡ª[[HEAD script : javascript]]¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª -->
+<!-- â€•â€•â€•[[HEAD script : javascript]]â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€• -->
 <script type="text/javascript">
-	//ºóÄ­À¸·Î ¸¸µé¾îÁÖ´Â ÇÔ¼ö
+	//ë¹ˆì¹¸ìœ¼ë¡œ ë§Œë“¤ì–´ì£¼ëŠ” í•¨ìˆ˜
 	function clearMethod(){
-		$('#t_wordBar').val('');//ºóÄ­À¸·Î ¸¸µé±â
-		showRecommand();//ÃßÃµ°Ë»ö¾î¸¦ ¶Ç ¶ç¿ì±â
+		$('#t_wordBar').val('');//ë¹ˆì¹¸ìœ¼ë¡œ ë§Œë“¤ê¸°
+		showRecommand();//ì¶”ì²œê²€ìƒ‰ì–´ë¥¼ ë˜ ë„ìš°ê¸°
 	}
-	//¸®½ºÆ®¸¦ ºñ¿öÁÖ´Â ÇÔ¼ö
+	//ë¦¬ìŠ¤íŠ¸ë¥¼ ë¹„ì›Œì£¼ëŠ” í•¨ìˆ˜
 	function clearList(){
-		$("#d_bookList").html("");//ºñ¿ì±â
+		$("#d_bookList").html("");//ë¹„ìš°ê¸°
 	}
-	//ÃßÃµ°Ë»ö¾î¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
+	//ì¶”ì²œê²€ìƒ‰ì–´ë¥¼ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜
 	function showRecommand(){
-		var recom1 = "Á¤";
-		var recom2 = "¤¸";
-		var recom3 = "¤¸¤²";
-		var recom4 = "ÀÚ¹Ù";
+		var recom1 = "ì •";
+		var recom2 = "ã…ˆ";
+		var recom3 = "ã…ˆã…‚";
+		var recom4 = "ìžë°”";
 		var recom5 = "o";
-		$("#d_bookList").html("<b>ÃßÃµ</b>"
+		$("#d_bookList").html("<b>ì¶”ì²œ</b>"
 			+"&nbsp;&nbsp;<a href='javascript:clickRecommand(1)' id='a_rc1'>"+recom1+"</a>"
 			+"&nbsp;&nbsp;<a href='javascript:clickRecommand(2)' id='a_rc2'>"+recom2+"</a>"
 			+"&nbsp;&nbsp;<a href='javascript:clickRecommand(3)' id='a_rc3'>"+recom3+"</a>"
 			+"&nbsp;&nbsp;<a href='javascript:clickRecommand(4)' id='a_rc4'>"+recom4+"</a>"
 			+"&nbsp;&nbsp;<a href='javascript:clickRecommand(5)' id='a_rc5'>"+recom5+"</a>"	);
 	}
-	//ÃßÃµ°Ë»ö¾î Å¬¸¯½Ã ÅØ½ºÆ®¹Ú½º¿¡ ÀÔ·Â½ÃÅ°±â
+	//ì¶”ì²œê²€ìƒ‰ì–´ í´ë¦­ì‹œ í…ìŠ¤íŠ¸ë°•ìŠ¤ì— ìž…ë ¥ì‹œí‚¤ê¸°
 	function clickRecommand(num) {
 		$('#t_wordBar').val($("#a_rc"+num+"").text());
 		getBookList();
 	}
-<%/* [[ ÃÊ¼ºÁö½Ä µµ¿ò¸» ]]
-¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
-	1. ÃÊ¼ºÀÚÀ½Àº ¸ðµÎ 19°³ : 	¤¡,¤¢,¤¤,¤§,¤¨,¤©,¤±,¤²,¤³,¤µ,¤¶,¤·,¤¸,¤¹,¤º,¤»,¤¼,¤½,¤¾
-	2. Áß¼º¸ðÀ½Àº ¸ðµÎ 21°³ : 	¤¿,¤À,¤Á,¤Â,¤Ã,¤Ä,¤Å,¤Æ,¤Ç,¤È,¤Ê,¤É,¤Ë,¤Ì,¤Í,¤Ï,¤Î,¤Ð,¤Ñ,¤Ò,¤Ó
-	3. Á¾¼ºÀÚÀ½Àº ¸ðµÎ 27°³: 	¤¡,¤¢,¤£,¤¤,¤¥,¤¦,¤§,¤©,¤ª,¤«,¤¬,¤­,¤®,¤°,¤±,¤²,¤´,¤µ,¤¶,¤·,¤¸,¤º,¤»,¤¼,¤½,¤¾(¹ÞÄ§¾øÀ» °æ¿ì±îÁö ÃÑ 28°¡Áö)
-¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
-	1. Á¾¼ºÀÌ ¹Ù²î´Â °æ¿ì ÄÚµå°ª Â÷ÀÌ : 28
-	2. ÃÊ¼ºÀÌ ¹Ù²î´Â °æ¿ì ÄÚµå°ª Â÷ÀÌ : 588( = 21*28)
-	3. ÇÑ±Û¿¡ ´ëÇÑ Ã¹ ÄÚµå°ª('°¡'ÀÇ ÄÚµå°ªÀº 44032)
-		ÃÊ¼º : ±ÛÀÚÀÇ ÄÚµå¿¡¼­ '44032'¸¦ »©°í '21*28'·Î ³ª´« ¸ò :0~18
-		Áß¼º : ±ÛÀÚÀÇ ÄÚµå¿¡¼­ '44032'¸¦ »©°í '21*28'·Î ³ª´« ³ª¸ÓÁö¸¦ ´Ù½Ã 28·Î ³ª´« ¸ò :0~20
-		Á¾¼º : ±ÛÀÚÀÇ ÄÚµå¿¡¼­ '44032'¸¦ »©°í '21*28'·Î ³ª´« ³ª¸ÓÁö¸¦ ´Ù½Ã 28·Î ³ª´« ³ª¸ÓÁö :0~27
-¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡*/%>
-	//ÇÑ±ÛÃÊ¼ºÃ³¸® ÇÔ¼ö
+<%/* [[ ì´ˆì„±ì§€ì‹ ë„ì›€ë§ ]]
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+	1. ì´ˆì„±ìžìŒì€ ëª¨ë‘ 19ê°œ : 	ã„±,ã„²,ã„´,ã„·,ã„¸,ã„¹,ã…,ã…‚,ã…ƒ,ã……,ã…†,ã…‡,ã…ˆ,ã…‰,ã…Š,ã…‹,ã…Œ,ã…,ã…Ž
+	2. ì¤‘ì„±ëª¨ìŒì€ ëª¨ë‘ 21ê°œ : 	ã…,ã…,ã…‘,ã…’,ã…“,ã…”,ã…•,ã…–,ã…—,ã…˜,ã…š,ã…™,ã…›,ã…œ,ã…,ã…Ÿ,ã…ž,ã… ,ã…¡,ã…¢,ã…£
+	3. ì¢…ì„±ìžìŒì€ ëª¨ë‘ 27ê°œ: 	ã„±,ã„²,ã„³,ã„´,ã„µ,ã„¶,ã„·,ã„¹,ã„º,ã„»,ã„¼,ã„½,ã„¾,ã…€,ã…,ã…‚,ã…„,ã……,ã…†,ã…‡,ã…ˆ,ã…Š,ã…‹,ã…Œ,ã…,ã…Ž(ë°›ì¹¨ì—†ì„ ê²½ìš°ê¹Œì§€ ì´ 28ê°€ì§€)
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+	1. ì¢…ì„±ì´ ë°”ë€ŒëŠ” ê²½ìš° ì½”ë“œê°’ ì°¨ì´ : 28
+	2. ì´ˆì„±ì´ ë°”ë€ŒëŠ” ê²½ìš° ì½”ë“œê°’ ì°¨ì´ : 588( = 21*28)
+	3. í•œê¸€ì— ëŒ€í•œ ì²« ì½”ë“œê°’('ê°€'ì˜ ì½”ë“œê°’ì€ 44032)
+		ì´ˆì„± : ê¸€ìžì˜ ì½”ë“œì—ì„œ '44032'ë¥¼ ë¹¼ê³  '21*28'ë¡œ ë‚˜ëˆˆ ëª« :0~18
+		ì¤‘ì„± : ê¸€ìžì˜ ì½”ë“œì—ì„œ '44032'ë¥¼ ë¹¼ê³  '21*28'ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ë¥¼ ë‹¤ì‹œ 28ë¡œ ë‚˜ëˆˆ ëª« :0~20
+		ì¢…ì„± : ê¸€ìžì˜ ì½”ë“œì—ì„œ '44032'ë¥¼ ë¹¼ê³  '21*28'ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ë¥¼ ë‹¤ì‹œ 28ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ :0~27
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€*/%>
+	//í•œê¸€ì´ˆì„±ì²˜ë¦¬ í•¨ìˆ˜
 	function choSung(str){
-		var cho = ["¤¡","¤¢","¤¤","¤§","¤¨","¤©"
-				  ,"¤±","¤²","¤³","¤µ","¤¶","¤·"
-				  ,"¤¸","¤¹","¤º","¤»","¤¼","¤½","¤¾"];//19°³ ÃÊ¼º
+		var cho = ["ã„±","ã„²","ã„´","ã„·","ã„¸","ã„¹"
+				  ,"ã…","ã…‚","ã…ƒ","ã……","ã…†","ã…‡"
+				  ,"ã…ˆ","ã…‰","ã…Š","ã…‹","ã…Œ","ã…","ã…Ž"];//19ê°œ ì´ˆì„±
 		var result = "";
 		for(i=0;i<str.length;i++){
 			code = str.charCodeAt(i)-44032;
-			//alert("code = "+code);//strÀÌ 'ÀÚ¹Ù'¶ó¸é 2°¡ ¹ÝÈ¯µÊ
+			//alert("code = "+code);//strì´ 'ìžë°”'ë¼ë©´ 2ê°€ ë°˜í™˜ë¨
 			if(code>-1 && code<11172){
 				result += cho[Math.floor(code/588)];
 			}
@@ -69,11 +69,11 @@
 		console.log("result : "+result);
 		return result;
 	}
-	//»ó¼¼Á¤º¸¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
+	//ìƒì„¸ì •ë³´ë¥¼ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜
 	function getWordDetail(tds){
-		//console.log("getWordDetail È£Ãâ");
-		var src = tds.childNodes[3].value;//hiddenÀ¸·Î ³Ñ¾î¿Â  B_IMGÄÃ·³°ªÀ» ´ãÀ½ (°¨ÁöµÇ¸é °æ·ÎÇ¥½Ã,¾øÀ¸¸é ¹Ì¸®º¸±â ¾È³»)
-		var bname = tds.childNodes[4].value;//hiddenÀ¸·Î ³Ñ¾î¿Â  B_NAMEÄÃ·³°ªÀ» ´ãÀ½ (½æ³×ÀÏÇ¥½Ã °¨½Ã±âÁØ ,¾øÀ¸¸é ¹Ì¸®º¸±â ¾È³»)
+		//console.log("getWordDetail í˜¸ì¶œ");
+		var src = tds.childNodes[3].value;//hiddenìœ¼ë¡œ ë„˜ì–´ì˜¨  B_IMGì»¬ëŸ¼ê°’ì„ ë‹´ìŒ (ê°ì§€ë˜ë©´ ê²½ë¡œí‘œì‹œ,ì—†ìœ¼ë©´ ë¯¸ë¦¬ë³´ê¸° ì•ˆë‚´)
+		var bname = tds.childNodes[4].value;//hiddenìœ¼ë¡œ ë„˜ì–´ì˜¨  B_NAMEì»¬ëŸ¼ê°’ì„ ë‹´ìŒ (ì¸ë„¤ì¼í‘œì‹œ ê°ì‹œê¸°ì¤€ ,ì—†ìœ¼ë©´ ë¯¸ë¦¬ë³´ê¸° ì•ˆë‚´)
 		console.log("src = "+src);
 		var param = "B_IMG="+src+"&B_NAME="+bname;
 		$.ajax({
@@ -85,99 +85,99 @@
 			}
 		});
 	}
-	//Á¶È¸ÇÏ±â
+	//ì¡°íšŒí•˜ê¸°
 	function getBookList(){
-			//alert("keyupÈ£Ãâ¼º°ø");
-			//¹®ÀÚ´ã±â(ÃÊ¼ºÃ³¸®)
-			var v_word = $("#t_wordBar").val().toUpperCase();//¿µ¹®¹®ÀÚ ´ë¹®ÀÚº¯È¯
+			//alert("keyupí˜¸ì¶œì„±ê³µ");
+			//ë¬¸ìžë‹´ê¸°(ì´ˆì„±ì²˜ë¦¬)
+			var v_word = $("#t_wordBar").val().toUpperCase();//ì˜ë¬¸ë¬¸ìž ëŒ€ë¬¸ìžë³€í™˜
 			//var v_word = $("#t_wordBar").val();
 			console.log("v_word : "+v_word);
-			var choKeyword = choSung($("#t_wordBar").val());//ÇÑ±ÛÃÊ¼ºÃ³¸® ÈÄ º¯¼ö´ã±â
+			var choKeyword = choSung($("#t_wordBar").val());//í•œê¸€ì´ˆì„±ì²˜ë¦¬ í›„ ë³€ìˆ˜ë‹´ê¸°
 			console.log("choKeyword : "+choKeyword);
 			
-			/*	[¾Ë°í¸®Áò ÇØ¼³]
-				toUpperCase()ÇÔ¼ö´Â ¿µ¹®¿¡ ´ëÇÏ¿© ´ë¹®ÀÚ·Î ¹ÝÈ¯ÇÏ°í,
-				choSung()ÇÔ¼ö´Â ÃÊ¼º°ú Áß¼ºÀÌ»óÀÇ À½Àý´ÜÀ§ ÀÌ»óÀÇ ÇÑ±Û¿¡ ´ëÇÏ¿© ÃÊ¼ºÀ» ¹ÝÈ¯ÇÏ¹Ç·Î
+			/*	[ì•Œê³ ë¦¬ì¦˜ í•´ì„¤]
+				toUpperCase()í•¨ìˆ˜ëŠ” ì˜ë¬¸ì— ëŒ€í•˜ì—¬ ëŒ€ë¬¸ìžë¡œ ë°˜í™˜í•˜ê³ ,
+				choSung()í•¨ìˆ˜ëŠ” ì´ˆì„±ê³¼ ì¤‘ì„±ì´ìƒì˜ ìŒì ˆë‹¨ìœ„ ì´ìƒì˜ í•œê¸€ì— ëŒ€í•˜ì—¬ ì´ˆì„±ì„ ë°˜í™˜í•˜ë¯€ë¡œ
 				
-				¿ÜºÎ if¹®¿¡¼­
-					v_word¿¡´Â ¹º°¡ ÀÔ·ÂµÇ¾î¼­ ºó°ª("")ÀÌ ¾Æ´Ï°í,
-					choKeyword°¡ ºó°ª("")ÀÎ »óÅÂ´Â "¿µ¾î ¶Ç´Â ¼ýÀÚ"ÀÎ »óÅÂÀÌ´Ù.
-				    ³»ºÎ if¹®¿¡¼­	
-					v_word¿¡ ¹ÝÈ¯µÈ °ªÀÌ ¿µ¹® ´ë¹®ÀÚ A(¾Æ½ºÅ°ÄÚµå 48)ºÎÅÍ  ¿µ¹®´ë¹®ÀÚ Z(¾Æ½ºÅ°ÄÚµå90)À» Æ÷ÇÔÇÏ¿©
-					ÀÏºÎ ÀÛÀº ¼ýÀÚ °ª±îÁö Æ÷ÇÔÇÏ±â À§ÇØ 200À¸·Î ÁöÁ¤ÇÏ¸é,
-					"¿µ¾îÀÏ¶§´Â ÃÊ¼º¸ðµå°¡ ²¨Áöµµ·Ï ¼³Á¤µÊ"
-				    ³»ºÎ else¹®¿¡¼­ 
-					±× ¿ÜÀÇ ¼ýÀÚ¸¦ ´ë»ó¿¡ ´ëÇØ ¼³Á¤ÇÏ¹Ç·Î
-					"¼ýÀÚÀÏ¶§´Â ÃÊ¼º¸ðµå°¡ ÄÑÁü"
+				ì™¸ë¶€ ifë¬¸ì—ì„œ
+					v_wordì—ëŠ” ë­”ê°€ ìž…ë ¥ë˜ì–´ì„œ ë¹ˆê°’("")ì´ ì•„ë‹ˆê³ ,
+					choKeywordê°€ ë¹ˆê°’("")ì¸ ìƒíƒœëŠ” "ì˜ì–´ ë˜ëŠ” ìˆ«ìž"ì¸ ìƒíƒœì´ë‹¤.
+				    ë‚´ë¶€ ifë¬¸ì—ì„œ	
+					v_wordì— ë°˜í™˜ëœ ê°’ì´ ì˜ë¬¸ ëŒ€ë¬¸ìž A(ì•„ìŠ¤í‚¤ì½”ë“œ 48)ë¶€í„°  ì˜ë¬¸ëŒ€ë¬¸ìž Z(ì•„ìŠ¤í‚¤ì½”ë“œ90)ì„ í¬í•¨í•˜ì—¬
+					ì¼ë¶€ ìž‘ì€ ìˆ«ìž ê°’ê¹Œì§€ í¬í•¨í•˜ê¸° ìœ„í•´ 200ìœ¼ë¡œ ì§€ì •í•˜ë©´,
+					"ì˜ì–´ì¼ë•ŒëŠ” ì´ˆì„±ëª¨ë“œê°€ êº¼ì§€ë„ë¡ ì„¤ì •ë¨"
+				    ë‚´ë¶€ elseë¬¸ì—ì„œ 
+					ê·¸ ì™¸ì˜ ìˆ«ìžë¥¼ ëŒ€ìƒì— ëŒ€í•´ ì„¤ì •í•˜ë¯€ë¡œ
+					"ìˆ«ìžì¼ë•ŒëŠ” ì´ˆì„±ëª¨ë“œê°€ ì¼œì§"
 				
-				¿ÜºÎ else if¹®¿¡¼­
-					v_word¿¡´Â ¹º°¡ ÀÔ·ÂµÇ¾îÀÖ¾î¼­ ºó°ª("")ÀÌ ¾Æ´Ï°í,
-					choKeywordµµ ¹º°¡ ¹ÝÈ¯µÇ¾îÀÖ¾î¼­ ºó°ª("")ÀÌ ¾Æ´Ñ»óÅÂ´Â "ÇÑ±ÛÀ½Àý"ÀÎ »óÅÂÀÌ¹Ç·Î
-					"ÇÑ±ÛÀÏ¶§´Â ÃÊ¼º¸ðµå°¡ ²¨Áü"
+				ì™¸ë¶€ else ifë¬¸ì—ì„œ
+					v_wordì—ëŠ” ë­”ê°€ ìž…ë ¥ë˜ì–´ìžˆì–´ì„œ ë¹ˆê°’("")ì´ ì•„ë‹ˆê³ ,
+					choKeywordë„ ë­”ê°€ ë°˜í™˜ë˜ì–´ìžˆì–´ì„œ ë¹ˆê°’("")ì´ ì•„ë‹ŒìƒíƒœëŠ” "í•œê¸€ìŒì ˆ"ì¸ ìƒíƒœì´ë¯€ë¡œ
+					"í•œê¸€ì¼ë•ŒëŠ” ì´ˆì„±ëª¨ë“œê°€ êº¼ì§"
 				
-				¿ÜºÎ else¹®¿¡¼­
-					v_word°¡ ºó°ª("")ÀÎ °æ¿ì´Â °Ë»öÁ¶°ÇÀÌ ¾ø´Â »óÅÂÀÌ¹Ç·Î
-					Á¶È¸°á°ú¸¦ ºñ¿öµÎ°í ÇÔ¼ö¸¦ Á¾·áÇÔ
+				ì™¸ë¶€ elseë¬¸ì—ì„œ
+					v_wordê°€ ë¹ˆê°’("")ì¸ ê²½ìš°ëŠ” ê²€ìƒ‰ì¡°ê±´ì´ ì—†ëŠ” ìƒíƒœì´ë¯€ë¡œ
+					ì¡°íšŒê²°ê³¼ë¥¼ ë¹„ì›Œë‘ê³  í•¨ìˆ˜ë¥¼ ì¢…ë£Œí•¨
 			*/
-			//ÃÊ¼º¸ðµå Y/N ºÐ¼®ÇÏ±â
-			if(v_word!="" && choKeyword=="") {//¿µ¾î ¶Ç´Â ¼ýÀÚ  ¶Ç´Â ÇÑ±Û ÃÊ¼º: ÀÔ·ÂÀº µÇ¾úÁö¸¸ ÃÊ¼ºº¯È¯Àº ¾ÈµÊ
-				if(v_word.charCodeAt(0)>=48 && v_word.charCodeAt(0)<=200){//¿µ¾î¿Í ¼ýÀÚ ¶ó¸é
+			//ì´ˆì„±ëª¨ë“œ Y/N ë¶„ì„í•˜ê¸°
+			if(v_word!="" && choKeyword=="") {//ì˜ì–´ ë˜ëŠ” ìˆ«ìž  ë˜ëŠ” í•œê¸€ ì´ˆì„±: ìž…ë ¥ì€ ë˜ì—ˆì§€ë§Œ ì´ˆì„±ë³€í™˜ì€ ì•ˆë¨
+				if(v_word.charCodeAt(0)>=48 && v_word.charCodeAt(0)<=200){//ì˜ì–´ì™€ ìˆ«ìž ë¼ë©´
 				//ASCII CODE 48:A ~ ASCII CODE 90:Z 
-					choMode = "N";//ÃÊ¼º¸ðµå NO
-				}else{//ÇÑ±ÛÃÊ¼º 
-					choMode = "Y";//ÃÊ¼º¸ðµå YES ( ÃÊ¼º¸ðµå¸¦ ÄÑ¼­ xml¹®¼­ ¾È¿¡ À§Ä¡ÇÑ )
+					choMode = "N";//ì´ˆì„±ëª¨ë“œ NO
+				}else{//í•œê¸€ì´ˆì„± 
+					choMode = "Y";//ì´ˆì„±ëª¨ë“œ YES ( ì´ˆì„±ëª¨ë“œë¥¼ ì¼œì„œ xmlë¬¸ì„œ ì•ˆì— ìœ„ì¹˜í•œ )
 				}
 				choKeyword = v_word;
-			} else if(v_word!="" && choKeyword!="") {//ÇÑ±Û À½Àý : ÀÔ·ÂÀº µÇ¾ú´Âµ¥ ÃÊ¼ºº¯È¯µµ µÊ
-				choMode = "N";//ÃÊ¼º¸ðµå NO ( ¿Ö³ÄÇÏ¸é, ÇÑ±Û ±×´ë·Î DB¿Í ºñ±³ÇÏ¸é µÊ )
+			} else if(v_word!="" && choKeyword!="") {//í•œê¸€ ìŒì ˆ : ìž…ë ¥ì€ ë˜ì—ˆëŠ”ë° ì´ˆì„±ë³€í™˜ë„ ë¨
+				choMode = "N";//ì´ˆì„±ëª¨ë“œ NO ( ì™œëƒí•˜ë©´, í•œê¸€ ê·¸ëŒ€ë¡œ DBì™€ ë¹„êµí•˜ë©´ ë¨ )
 				choKeyword = v_word;
-			} else {//ÀÔ·Â°ªÀÌ ¾øÀ» °æ¿ì
+			} else {//ìž…ë ¥ê°’ì´ ì—†ì„ ê²½ìš°
 				showRecommand();
 				return;
 			}
 			
 			var param // = "userInput="+$("#t_wordBar").val(); 
 				= "command=select"
-					+"&userInput="+choKeyword//¼­ºí¸´¿¡¼­ Á¶È¸¿ëÀ¸·Î ÆÇ´ÜÇÏµµ·Ï ÇÔ
+					+"&userInput="+choKeyword//ì„œë¸”ë¦¿ì—ì„œ ì¡°íšŒìš©ìœ¼ë¡œ íŒë‹¨í•˜ë„ë¡ í•¨
 					+"&choMode="+choMode;
-			console.log("param = "+param);//ÀÔ·Â°ª ºê¶ó¿ìÀúÄÜ¼ÖÃ¢ È®ÀÎ¿ë
+			console.log("param = "+param);//ìž…ë ¥ê°’ ë¸Œë¼ìš°ì €ì½˜ì†”ì°½ í™•ì¸ìš©
 			
 			$.ajax({
 				 method:"POST"
-				,url:"./Book_Select.JL"//web.xml¹®¼­ ÀÛ¼ºµÈ urlÆÐÅÏ È®ÀÎ(Æú´õ±îÁö °æ·Î¸ÂÃß±â)
-			//	,url:"./BookAction_List_json.jsp"//json¹®¼­
+				,url:"./Book_Select.JL"//web.xmlë¬¸ì„œ ìž‘ì„±ëœ urlíŒ¨í„´ í™•ì¸(í´ë”ê¹Œì§€ ê²½ë¡œë§žì¶”ê¸°)
+			//	,url:"./BookAction_List_json.jsp"//jsonë¬¸ì„œ
 				//,data:userInput
 				,data:param
 				,success:function(htmlCode){
-					//alert("Book_List.jsp·ÎºÎÅÍ ÀÀ´äµµÂø");
-				/*  css½ºÅ¸ÀÏ¸µ
-					$("#d_bookList").css("border-left","green 4px solid");//¿É¼Ç	
-					$("#d_bookList").css("border-radius","5px");//¿É¼Ç
-					$("#d_bookList").css("background","#CEF6CE");//¿É¼Ç
+					//alert("Book_List.jspë¡œë¶€í„° ì‘ë‹µë„ì°©");
+				/*  cssìŠ¤íƒ€ì¼ë§
+					$("#d_bookList").css("border-left","green 4px solid");//ì˜µì…˜	
+					$("#d_bookList").css("border-radius","5px");//ì˜µì…˜
+					$("#d_bookList").css("background","#CEF6CE");//ì˜µì…˜
 					$("#d_bookList").css("left",$("#t_wordBar").offset().left+"px");
 					$("#d_bookList").css("top",$("#t_wordBar").offset().top+$("#t_wordBar").offset().height+"px"); */
-					$("#d_bookList").html(htmlCode);//result¿¡´Â htmlÅÂ±×
+					$("#d_bookList").html(htmlCode);//resultì—ëŠ” htmlíƒœê·¸
 					if($("#no_search")!=null){
-						$("#no_search").html("<br><dl><dt><h3>'"+$("#t_wordBar").val()+"' ÀÇ °Ë»ö°á°ú°¡ ¾ø½À´Ï´Ù.</h3></dt>"
-										+"<dd>°Ë»ö¾îÀÇ Ã¶ÀÚ°¡ Á¤È®ÇÑÁö ´Ù½Ã ÇÑ¹ø È®ÀÎÇØÁÖ¼¼¿ä.</dd>"
-										+"<d>°Ë»ö¾îÀÇ ´Ü¾î ¼ö¸¦ ÁÙÀÌ°Å³ª, ´Ü¾îÀÇ ¶ç¾î¾²±â¸¦ ÇØÁÖ¼¼¿ä.</dd>");
+						$("#no_search").html("<br><dl><dt><h3>'"+$("#t_wordBar").val()+"' ì˜ ê²€ìƒ‰ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.</h3></dt>"
+										+"<dd>ê²€ìƒ‰ì–´ì˜ ì² ìžê°€ ì •í™•í•œì§€ ë‹¤ì‹œ í•œë²ˆ í™•ì¸í•´ì£¼ì„¸ìš”.</dd>"
+										+"<d>ê²€ìƒ‰ì–´ì˜ ë‹¨ì–´ ìˆ˜ë¥¼ ì¤„ì´ê±°ë‚˜, ë‹¨ì–´ì˜ ë„ì–´ì“°ê¸°ë¥¼ í•´ì£¼ì„¸ìš”.</dd>");
 					}
-					//°á°ú¿¡ ¸¶¿ì½º ¿Ã¸®¸é ÀÚµ¿À¸·Î º¸¿©Áöµµ·ÏÇÏ´Â ÀÌº¥Æ®Ã³¸®
-					/* var tds = document.getElementsByTagName("td");//ºê¶ó¿ìÀú´Â °°Àº ÅÂ±×°¡ 2°³ÀÌ»óÀÌ¸é ÀÚµ¿À¸·Î ¹è¿­·Î Ã³¸®
+					//ê²°ê³¼ì— ë§ˆìš°ìŠ¤ ì˜¬ë¦¬ë©´ ìžë™ìœ¼ë¡œ ë³´ì—¬ì§€ë„ë¡í•˜ëŠ” ì´ë²¤íŠ¸ì²˜ë¦¬
+					/* var tds = document.getElementsByTagName("td");//ë¸Œë¼ìš°ì €ëŠ” ê°™ì€ íƒœê·¸ê°€ 2ê°œì´ìƒì´ë©´ ìžë™ìœ¼ë¡œ ë°°ì—´ë¡œ ì²˜ë¦¬
 					console.log(tds);
-					for(var i=0;i<tds.length;i++){//TagNameº°·Î ¹Ýº¹
-						tds[i].onmouseover = function(){//¸¶¿ì½º¿À¹ö
+					for(var i=0;i<tds.length;i++){//TagNameë³„ë¡œ ë°˜ë³µ
+						tds[i].onmouseover = function(){//ë§ˆìš°ìŠ¤ì˜¤ë²„
 							//this.className = "listIn";//css
 							for(var i=0; i<this.childNodes.length;i++)
 								if(this.childNodes[i].value!=null){
-									console.log("Ãâ·Â : "+this.childNodes[i].value);
+									console.log("ì¶œë ¥ : "+this.childNodes[i].value);
 								}else{
-									console.log("Ãâ·Â : NULL")
+									console.log("ì¶œë ¥ : NULL")
 								}
-							//ajaxÃ³¸®
+							//ajaxì²˜ë¦¬
 							getWordDetail(this);
 						}
-						tds[i].onmouseout = function(){//¸¶¿ì½º¾Æ¿ôÃ³¸®
+						tds[i].onmouseout = function(){//ë§ˆìš°ìŠ¤ì•„ì›ƒì²˜ë¦¬
 							//this.className = "listOut";//css
 						}
 					} */
@@ -187,9 +187,9 @@
 				}
 			});
  		}
-	//»ó¼¼Á¤º¸¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
+	//ìƒì„¸ì •ë³´ë¥¼ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜
 	function getThumb(B_IMG){
-		console.log("getThumb()È£ÃâµÊ / B_IMG = "+B_IMG);
+		console.log("getThumb()í˜¸ì¶œë¨ / B_IMG = "+B_IMG);
 		if(B_IMG!=""){
 			var param = "B_IMG="+B_IMG;
 			$.ajax({
@@ -207,39 +207,39 @@
 </script>
 </head>
 <!--
-¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á
+â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– 
 -->
 <body>
-<!-- ¡ª¡ª¡ª[[BODY script : javascript]]¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª -->
+<!-- â€•â€•â€•[[BODY script : javascript]]â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€• -->
 <script type="text/javascript">
- 	$(document).ready(function() {//DOM±¸¼º ¿Ï·á
+ 	$(document).ready(function() {//DOMêµ¬ì„± ì™„ë£Œ
  		showRecommand();
  		$("#t_wordBar").keyup(function() {getBookList();});
 	});
 </script>
 
-<!-- ¡ª¡ª¡ª[[BODY content : html]]¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª -->
+<!-- â€•â€•â€•[[BODY content : html]]â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€• -->
 <div align="center">
-<!-- »ó´Ü ·Î°í ³Ö±â -->
+<!-- ìƒë‹¨ ë¡œê³  ë„£ê¸° -->
 <a href="./BookSearch_Intro.jsp">
 	<img src="../../src/img/logo_kyobo.png" width="350" height="350" class="img-responsive" alt="Responsive image">
 </a>
-<!-- °Ë»ö ÅØ½ºÆ®¹Ú½º [¿­±â] -->
+<!-- ê²€ìƒ‰ í…ìŠ¤íŠ¸ë°•ìŠ¤ [ì—´ê¸°] -->
 <form class="form-inline">
 	<div class="form-group">
 		<div class="input-group">
-			<div class="input-group-addon">ÅëÇÕ°Ë»ö</div>
+			<div class="input-group-addon">í†µí•©ê²€ìƒ‰</div>
 			<input type="text" class="form-control" id="t_wordBar"
-				style="width:360;" placeholder="µµ¼­¸í ¶Ç´Â ÀúÀÚ¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä"
-				data-toggle="tooltip" data-placement="top" title="µµ¼­¸í ¶Ç´Â ÀúÀÚ¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.ÃÊ¼º°Ë»öµµ °¡´ÉÇÕ´Ï´Ù."
+				style="width:360;" placeholder="ë„ì„œëª… ë˜ëŠ” ì €ìžëª…ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”"
+				data-toggle="tooltip" data-placement="top" title="ë„ì„œëª… ë˜ëŠ” ì €ìžëª…ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.ì´ˆì„±ê²€ìƒ‰ë„ ê°€ëŠ¥í•©ë‹ˆë‹¤."
 				onClick="clearMethod()">
 		</div>
 	</div>
-	<button type="submit" class="btn btn-primary">°Ë»ö</button>
+	<button type="submit" class="btn btn-primary">ê²€ìƒ‰</button>
 </form>	
-<!-- °Ë»ö ÅØ½ºÆ®¹Ú½º [´Ý±â] -->
-<!-- µµ¼­ °Ë»ö °á°ú  [¿­±â]-->
+<!-- ê²€ìƒ‰ í…ìŠ¤íŠ¸ë°•ìŠ¤ [ë‹«ê¸°] -->
+<!-- ë„ì„œ ê²€ìƒ‰ ê²°ê³¼  [ì—´ê¸°]-->
 <div id="d_bookList"></div>
-<!-- µµ¼­ °Ë»ö °á°ú  [´Ý±â]-->
+<!-- ë„ì„œ ê²€ìƒ‰ ê²°ê³¼  [ë‹«ê¸°]-->
 </body>
 </html>

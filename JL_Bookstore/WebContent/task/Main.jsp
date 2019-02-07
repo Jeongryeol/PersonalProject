@@ -6,75 +6,75 @@
 <head>
 <meta charset="EUC-KR">
 <title>Welcome to visit JLStore!</title>
-<!-- ¡ª¡ª¡ª[[BODY script ]]¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª -->
+<!-- â€•â€•â€•[[BODY script ]]â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€• -->
 <script type="text/javascript">
-	//ºñ¹Ğ¹øÈ£Ã£±â ÇÔ¼ö
+	//ë¹„ë°€ë²ˆí˜¸ì°¾ê¸° í•¨ìˆ˜
 	function findPW(){
-		//ÀÔ·Â°ª ´ã±â
+		//ì…ë ¥ê°’ ë‹´ê¸°
 		var userName = $("#i_name").val();
 		var userEmail = $("#i_email").val();
-		//¿äÃ»°´Ã¼¿¡ ´ãÀ» ÆÄ¶ó¹ÌÅÍ »ı¼º
+		//ìš”ì²­ê°ì²´ì— ë‹´ì„ íŒŒë¼ë¯¸í„° ìƒì„±
 		var param = "command=select"
 				  	+"&m_name="+userName
 				  	+"&m_email="+userEmail;
-		/* ¼­ºí¸´ »ı¼ºÈÄ È­¸éÀüÈ¯ Å×½ºÆ®ÇÊ¿ä */
+		/* ì„œë¸”ë¦¿ ìƒì„±í›„ í™”ë©´ì „í™˜ í…ŒìŠ¤íŠ¸í•„ìš” */
 		response.sendRedirect("/task/FindPassword.JL");
 	}
-	//·Î±×ÀÎ ÇÔ¼ö
+	//ë¡œê·¸ì¸ í•¨ìˆ˜
 	function signIn(){
-		//ÀÔ·Â°ª ´ã±â
+		//ì…ë ¥ê°’ ë‹´ê¸°
 		var userName = $("#i_name").val();
 		var userEmail = $("#i_email").val();
 		var userPw = $("#i_pw").val();
-		//¿äÃ»°´Ã¼¿¡ ´ãÀ» ÆÄ¶ó¹ÌÅÍ »ı¼º
-		var param  = "command"	+"="+"select"	//±âº»¸í·É:Á¶È¸¾÷¹«
-			+"&"	+"comtype"	+"="+"signIn"	//¼¼ºÎ¸í·É:È¸¿ø°¡ÀÔ
+		//ìš”ì²­ê°ì²´ì— ë‹´ì„ íŒŒë¼ë¯¸í„° ìƒì„±
+		var param  = "command"	+"="+"select"	//ê¸°ë³¸ëª…ë ¹:ì¡°íšŒì—…ë¬´
+			+"&"	+"comtype"	+"="+"signIn"	//ì„¸ë¶€ëª…ë ¹:íšŒì›ê°€ì…
 			+"&"	+"m_name"	+"="+userName
 			+"&"	+"m_email"	+"="+userEmail
 			+"&"	+"m_pw"		+"="+userPw;
-		//ºñµ¿±âÃ³¸®·Î ·Î±×ÀÎÈ®ÀÎÇÏ±â
+		//ë¹„ë™ê¸°ì²˜ë¦¬ë¡œ ë¡œê·¸ì¸í™•ì¸í•˜ê¸°
 		$.ajax({
 			 method:"post"
-			,url:"/SignIn.JL"/* ¼­ºí¸´ »ı¼ºÇÒ °Í  */
+			,url:"/SignIn.JL"/* ì„œë¸”ë¦¿ ìƒì„±í•  ê²ƒ  */
 			,data:param
 			,success:function(htmlCode){
-				/* ·Î±×ÀÎÀÌ ¼º°øÇßÀ»¶§ÀÇ ÄÚµå ±â·ÏÇÏ±â */
+				/* ë¡œê·¸ì¸ì´ ì„±ê³µí–ˆì„ë•Œì˜ ì½”ë“œ ê¸°ë¡í•˜ê¸° */
 			}
 			,error:function(xhrObject){
-				alert("[[¿¡·¯]] "+xhrObject);
-				console.log("[[¿¡·¯]] "+xhrObject);
+				alert("[[ì—ëŸ¬]] "+xhrObject);
+				console.log("[[ì—ëŸ¬]] "+xhrObject);
 			}
 		});
 	}
 </script>
 </head>
 <body>
-<!-- ¡ª¡ª¡ª[[BODY script ]]¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª -->
+<!-- â€•â€•â€•[[BODY script ]]â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€• -->
 <script type="text/javascript">
 	$(document).ready(function() {
-	//ºñ¹Ğ¹øÈ£Ã£±â ¹öÆ°À» ´­·¶À» ¶§ : ºñ¹Ğ¹øÈ£Ã£±âÇÔ¼ö È£Ãâ
+	//ë¹„ë°€ë²ˆí˜¸ì°¾ê¸° ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ : ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°í•¨ìˆ˜ í˜¸ì¶œ
 		$("#btn_findPW").click(function() {
-			findPW();//ºñ¹Ğ¹øÈ£Ã£±âÇÔ¼ö È£Ãâ
+			findPW();//ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°í•¨ìˆ˜ í˜¸ì¶œ
 		});
-	//·Î±×ÀÎ ¹öÆ°À» ´­·¶À» ¶§ : ·Î±×ÀÎÇÔ¼ö È£Ãâ
+	//ë¡œê·¸ì¸ ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ : ë¡œê·¸ì¸í•¨ìˆ˜ í˜¸ì¶œ
 		$("#btn_signIn").click(function() {
-			signIn();//·Î±×ÀÎÇÔ¼öÈ£Ãâ
+			signIn();//ë¡œê·¸ì¸í•¨ìˆ˜í˜¸ì¶œ
 		});
-	alert("'·Î±×ÀÎ,È¸¿ø°¡ÀÔ,ºñ¹Ğ¹øÈ£Ã£±â'±¸ÇöÁß! [°Ë»ö]¼­ºñ½º·Î ÀÌµ¿ÇÕ´Ï´Ù...!")
+	alert("'ë¡œê·¸ì¸,íšŒì›ê°€ì…,ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°'êµ¬í˜„ì¤‘! [ê²€ìƒ‰]ì„œë¹„ìŠ¤ë¡œ ì´ë™í•©ë‹ˆë‹¤...!")
 	location.href = "./user/BookSearch_Intro.jsp";
 	});
 </script>
-<!-- ¡ª¡ª¡ª[[BODY content : html]]¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª -->
-<!-- formÅÂ±×¸¦  ÅëÇØ È¸¿ø°¡ÀÔÆäÀÌÁö(SignUp.jsp)·Î ÀÌµ¿ / ´ÜÀ§Å×½ºÆ® ÈÄ È­¸é ´Ùµë±â ÇÒ °Í-->
+<!-- â€•â€•â€•[[BODY content : html]]â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€• -->
+<!-- formíƒœê·¸ë¥¼  í†µí•´ íšŒì›ê°€ì…í˜ì´ì§€(SignUp.jsp)ë¡œ ì´ë™ / ë‹¨ìœ„í…ŒìŠ¤íŠ¸ í›„ í™”ë©´ ë‹¤ë“¬ê¸° í•  ê²ƒ-->
 <form action="./SignUp.jsp" method="post">
 <div class="form-group">
 	<div class="row">
-		<div class="col-md-4"><!-- ÁÂÃø¿©¹é --></div>
-		<div class="col-md-4" align="center"><!-- Áß¾Ó·Î±×ÀÎ -->
-			<!-- ·Î°í»ğÀÔ -->
+		<div class="col-md-4"><!-- ì¢Œì¸¡ì—¬ë°± --></div>
+		<div class="col-md-4" align="center"><!-- ì¤‘ì•™ë¡œê·¸ì¸ -->
+			<!-- ë¡œê³ ì‚½ì… -->
 			<div><img src="../src/img/logo_kyobo.png" width="250" height="250" class="img-responsive" alt="Responsive image"></div>
-			<div class="jumbotron" style="width: auto;"><!-- Á¡ÇÁÆ®·Ğ -->
-				<!-- ÀÌ¸§ -->
+			<div class="jumbotron" style="width: auto;"><!-- ì í”„íŠ¸ë¡  -->
+				<!-- ì´ë¦„ -->
 				<label for="exampleInputEmail2"><h4><strong>Name</strong></h4></label>
 				<div class="input-group">
 					<input type="text" id="i_name" name="n_name" value="Tester_Jung"
@@ -82,7 +82,7 @@
 							 size="35" style="text-align:center;"
 							onclick="javascript:$('#i_name').val('')">
 				</div>
-				<!-- ÀÌ¸ŞÀÏ-->
+				<!-- ì´ë©”ì¼-->
 				<label for="exampleInputEmail2"><h4><strong>Email Account</strong></h4></label>
 				<div class="input-group">
 					<input type="text" id="i_email" name="n_email" value="guestID@jlstore.com"
@@ -90,39 +90,39 @@
 							size="35" style="text-align:center;" 
 							onclick="javascript:$('#i_email').val('')">
 				</div>
-				<!-- ºñ¹Ğ¹øÈ£ -->
+				<!-- ë¹„ë°€ë²ˆí˜¸ -->
 				<label for="exampleInputEmail2"><h4><strong>Password</strong></h4></label>
 				<div class="input-group">
 					<input type="password" id="i_pw" name="n_pw" value="test1234"
-							class="form-control" placeholder="¡¤¡¤¡¤¡¤¡¤¡¤¡¤¡¤¡¤¡¤"
+							class="form-control" placeholder="Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·"
 							size="35" style="text-align:center;"
 							onclick="javascript:$('#i_pw').val('')">
 				</div>
 				<br>
-				<!-- ¹öÆ°±×·ì -->
+				<!-- ë²„íŠ¼ê·¸ë£¹ -->
 		  		<p align="center">
-		  		<!-- È¸¿ø°¡ÀÔ(Sign up) -->
+		  		<!-- íšŒì›ê°€ì…(Sign up) -->
 					<input type="submit" id="btn_signUp" value="Sign Up"
 							class="btn btn-primary btn-lg" style="width:300px;">
-				<!-- ±¸ºĞ --><div></div>
-				<!-- ºñ¹Ğ¹øÈ£Ã£±â -->
+				<!-- êµ¬ë¶„ --><div></div>
+				<!-- ë¹„ë°€ë²ˆí˜¸ì°¾ê¸° -->
 					<input type="button" id="btn_findPW" value="Find password"
 							class="btn btn-default" style="width:145px;">&nbsp;
-				<!-- ·Î±×ÀÎ(Sign in) -->
+				<!-- ë¡œê·¸ì¸(Sign in) -->
 		  			<input type="button" id="btn_signIn" value="Sign In" 
 		  					class="btn btn-success" style="width:145px;">
 		  		</p>
-		  		<div></div><!-- ±¸ºĞ¼± -->
-			</div><!-- Á¡ÇÁÆ®·Ğ ³¡ -->
-	  	</div><!-- Áß¾Ó·Î±×ÀÎ ³¡ -->
-		<div class="col-md-4"><!-- ¿ìÃø¿©¹é --></div>
+		  		<div></div><!-- êµ¬ë¶„ì„  -->
+			</div><!-- ì í”„íŠ¸ë¡  ë -->
+	  	</div><!-- ì¤‘ì•™ë¡œê·¸ì¸ ë -->
+		<div class="col-md-4"><!-- ìš°ì¸¡ì—¬ë°± --></div>
 	</div>
 </div>
 </form>
 <div class="col-md-4"></div>
 <div class="col-md-4" align="center">
-	<p class="bg-info"><!-- ÀúÀÛ±ÇÇ¥½Ã -->
-  		<h6><b>Copyright¨Ï2018 by JL. All Page content is property of JL</b></h6>
+	<p class="bg-info"><!-- ì €ì‘ê¶Œí‘œì‹œ -->
+  		<h6><b>Copyrightâ“’2018 by JL. All Page content is property of JL</b></h6>
 	</p>
 </div>
 <div class="col-md-4"></div>

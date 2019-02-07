@@ -6,28 +6,28 @@
 <%@ page import="util.HashMapBinder" %>
 
 <%
-	//json.jsp¸¦ ¿äÃ»(request)ÇßÀ» ¶§, ¿äÃ»ÀÇ °¢ ¼Ó¼ºº°·Î MapÀÚ·áÇü »ı¼ºÇÏ±â
+	//json.jspë¥¼ ìš”ì²­(request)í–ˆì„ ë•Œ, ìš”ì²­ì˜ ê° ì†ì„±ë³„ë¡œ Mapìë£Œí˜• ìƒì„±í•˜ê¸°
 	Map<String,Object> pMap = new HashMap<String,Object>();	
-	HashMapBinder hmb = new HashMapBinder(request);//¹ÙÀÎ´õ¿¡ request ÃÊ±âÈ­
-	hmb.bind(pMap);//ÃÊ±âÈ­µÈ request·Î ºó pMapÀ» º¸³»¾î ÇÑµ¥ ¹­À½(¹ÙÀÎµù)
+	HashMapBinder hmb = new HashMapBinder(request);//ë°”ì¸ë”ì— request ì´ˆê¸°í™”
+	hmb.bind(pMap);//ì´ˆê¸°í™”ëœ requestë¡œ ë¹ˆ pMapì„ ë³´ë‚´ì–´ í•œë° ë¬¶ìŒ(ë°”ì¸ë”©)
 
-	//MyBatis¿¡ ¿¬µ¿µÈ ÀÚ·á°´Ã¼ 
+	//MyBatisì— ì—°ë™ëœ ìë£Œê°ì²´ 
 	BookSelect_Dao bDao = new BookSelect_Dao();
 	List<Map<String,Object>> wordList = bDao.getDataList(pMap);
 	
-	//ListÀÚ·áÇüÀ» jsonÀ¸·Î º¯°æÇÏ±â
+	//Listìë£Œí˜•ì„ jsonìœ¼ë¡œ ë³€ê²½í•˜ê¸°
 	Gson g = new Gson();
-	String jsonWord = g.toJson(wordList);		//jsonÃ³·³ µÇµµ·Ï ¹è¿­·Î ´ã¾ÆÁÜ (´õºíÄõÅ×ÀÌ¼Ç ¾øÀ½)
+	String jsonWord = g.toJson(wordList);		//jsonì²˜ëŸ¼ ë˜ë„ë¡ ë°°ì—´ë¡œ ë‹´ì•„ì¤Œ (ë”ë¸”ì¿¼í…Œì´ì…˜ ì—†ìŒ)
 	//out.print(jsonWord);
 %>
 <script>
-	var objectWord = <%=jsonWord %>;			//jsonÈ­µÈ ¹è¿­À» ½ºÅ©¸³Æ®¿¡ ´ãÀ½. ¾ÆÁ÷ object»óÅÂ
-	var jsonWord = JSON.stringify(objectWord);	//json¿ÀºêÁ§Æ®¸¦ (ÀÚ¹Ù½ºÅ©¸³Æ®°ª)À» JSON¹®ÀÚ¿­·Î º¯È¯ÇÏ±â
-	var jsonDoc = JSON.parse(jsonWord);			//json¹®ÀÚ¿­À» ÆÄ½ÌÇØ¼­ ¹è¿­·Î Á¢±ÙÇÏ°í º¯È¯ÇÏ±â
+	var objectWord = <%=jsonWord %>;			//jsoní™”ëœ ë°°ì—´ì„ ìŠ¤í¬ë¦½íŠ¸ì— ë‹´ìŒ. ì•„ì§ objectìƒíƒœ
+	var jsonWord = JSON.stringify(objectWord);	//jsonì˜¤ë¸Œì íŠ¸ë¥¼ (ìë°”ìŠ¤í¬ë¦½íŠ¸ê°’)ì„ JSONë¬¸ìì—´ë¡œ ë³€í™˜í•˜ê¸°
+	var jsonDoc = JSON.parse(jsonWord);			//jsonë¬¸ìì—´ì„ íŒŒì‹±í•´ì„œ ë°°ì—´ë¡œ ì ‘ê·¼í•˜ê³  ë³€í™˜í•˜ê¸°
 	
-	//alert(jsonWord+", "+jsonDoc.length);		//È®ÀÎ
+	//alert(jsonWord+", "+jsonDoc.length);		//í™•ì¸
 	for(var i=0;i<jsonDoc.length;i++){
-		//jsonDoc[i].thing : thimgÀº ¸ÊÀÇ Å°°ªÀ¸·Î »ç¿ëµÇ¾ú´ø ¼Ó¼º°ªÀÇ ÀÌ¸§À¸·Î ÄõÅ×ÀÌ¼ÇÀÌ ÇÊ¿ä¾øÀ½
+		//jsonDoc[i].thing : thimgì€ ë§µì˜ í‚¤ê°’ìœ¼ë¡œ ì‚¬ìš©ë˜ì—ˆë˜ ì†ì„±ê°’ì˜ ì´ë¦„ìœ¼ë¡œ ì¿¼í…Œì´ì…˜ì´ í•„ìš”ì—†ìŒ
 		console.log(jsonDoc[i].B_NAME);
 	}
 </script>

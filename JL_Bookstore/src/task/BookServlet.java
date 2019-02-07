@@ -15,86 +15,84 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import util.HashMapBinder;
+
 /************************************************************
- * 	@last	2018.07.30
- * 	@comment
- * 	"BookStore_Intro.jsp"(È­¸é)¿¡¼­ Á¶È¸ ¿äÃ»ÇÑ °´Ã¼´Â
- * 	"BookAction_List.jsp"À» ÅëÇØ ¿äÃ»¿È ( web.xml urlÆĞÅÏ )
- * 	Á¶È¸¿äÃ»À» Ã³¸®ÇÏ´Â ¸Ş¼Òµå¸¦ ÀÎ½ºÅÏ½ºÈ­ÇÏ¿© Ã³¸®ÇÔ.
- * 	Ã³¸®µÈ ¾÷¹«¸¦ ´Ù½Ã µ¹·Á¹Ş¾Æ È­¸éÀ¸·Î º¸³»°í »ç¿ëÀÚ¿¡°Ô Ãâ·ÂÇÒ ¼ö ÀÖµµ·Ï ÇÔ.
- * 	@author ÀÌÁ¤·Ä(Jeongryeol Lee)
- *  @email	duxbellorn@gmail.com
- *  @GitHub	https://github.com/Jeongryeol
+ * @last 2018.07.30
+ * @comment
+ * 			"BookStore_Intro.jsp"(í™”ë©´)ì—ì„œ ì¡°íšŒ ìš”ì²­í•œ ê°ì²´ëŠ”
+ *          "BookAction_List.jsp"ì„ í†µí•´ ìš”ì²­ì˜´ ( web.xml urlíŒ¨í„´ )
+ *          ì¡°íšŒìš”ì²­ì„ ì²˜ë¦¬í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì¸ìŠ¤í„´ìŠ¤í™”í•˜ì—¬ ì²˜ë¦¬í•¨.
+ *          ì²˜ë¦¬ëœ ì—…ë¬´ë¥¼ ë‹¤ì‹œ ëŒë ¤ë°›ì•„ í™”ë©´ìœ¼ë¡œ ë³´ë‚´ê³  ì‚¬ìš©ìì—ê²Œ ì¶œë ¥í•  ìˆ˜ ìˆë„ë¡ í•¨.
+ * @author ì´ì •ë ¬(Jeongryeol Lee)
+ * @email duxbellorn@gmail.com
+ * @GitHub https://github.com/Jeongryeol
  ************************************************************/
 public class BookServlet extends HttpServlet {
-	//·Î±×¸¦ Âï´Â loj4jÀÇ ·Î°Å »ç¿ëÇÏ±â
+
+	// ë¡œê·¸ë¥¼ ì°ëŠ” loj4jì˜ ë¡œê±° ì‚¬ìš©í•˜ê¸°
 	Logger logger = Logger.getLogger(BookServlet.class);
-	
-	//¾÷¹«¸¦ ºĞ±âÇÏ´Â ¸Ş¼Òµå
-	public void doJudge(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException
-	{
-		Map<String,Object> pMap = new HashMap<String,Object>();//´ã´Â Map°´Ã¼
-		//pMap.put("userInput", req.getParameter("userInput"));//DB¿¬µ¿À» À§ÇØ MapÅ¸ÀÔ ´ã±â
-		//pMap.put("userInput", "ÀÚ");//´ÜÀ§Å×½ºÆ®¿Ï·á
-			//À§ °úÁ¤À» ÀÏ°ıÀûÀ¸·Î ÇØÁÖ´Â ¾Æ·¡ ±¸¹®
-		HashMapBinder hmb = new HashMapBinder(req);//util Æú´õ ³» À§Ä¡
+
+	// ì—…ë¬´ë¥¼ ë¶„ê¸°í•˜ëŠ” ë©”ì†Œë“œ
+	public void doJudge(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		Map<String, Object> pMap = new HashMap<String, Object>();// ë‹´ëŠ” Mapê°ì²´
+		// pMap.put("userInput", req.getParameter("userInput"));//DBì—°ë™ì„ ìœ„í•´ Mapíƒ€ì… ë‹´ê¸°
+		// pMap.put("userInput", "ì");//ë‹¨ìœ„í…ŒìŠ¤íŠ¸ì™„ë£Œ
+		// ìœ„ ê³¼ì •ì„ ì¼ê´„ì ìœ¼ë¡œ í•´ì£¼ëŠ” ì•„ë˜ êµ¬ë¬¸
+		HashMapBinder hmb = new HashMapBinder(req);// util í´ë” ë‚´ ìœ„ì¹˜
 		hmb.bind(pMap);
 		logger.info("select".equals(pMap.get("command").toString()));
-		
-		/*Á¶È¸*/
-		if("select".equals(pMap.get("command").toString())) {
-			logger.info("È£ÃâµÊ");
-			//¿äÃ»ºÎ
-			BookSelect_Dao bDao = new BookSelect_Dao();//DB¿¬µ¿°´Ã¼ ÀÎ½ºÅÏ½º
-			List<Map<String,Object>> rlist
-					= bDao.getDataList(pMap);//DB¿¬µ¿¿äÃ» ¹× ¸®ÅÏ°ª´ã±â
-			logger.info("[2]rlist = "+rlist.size());//È®ÀÎ¿ë ·Î±×
-		
-			//ÀÀ´äºÎ
-			req.setAttribute("output",rlist);//ÀÀ´ä°´Ã¼¿¡ ÀúÀå
-			RequestDispatcher view	//ÀÚ¹ÙÆäÀÌÁö·Î ÀÀ´ä°´Ã¼ »ı¼º
+
+		/* ì¡°íšŒ */
+		if ("select".equals(pMap.get("command").toString())) {
+			logger.info("í˜¸ì¶œë¨");
+			// ìš”ì²­ë¶€
+			BookSelect_Dao bDao = new BookSelect_Dao();// DBì—°ë™ê°ì²´ ì¸ìŠ¤í„´ìŠ¤
+			List<Map<String, Object>> rlist = bDao.getDataList(pMap);// DBì—°ë™ìš”ì²­ ë° ë¦¬í„´ê°’ë‹´ê¸°
+			logger.info("[2]rlist = " + rlist.size());// í™•ì¸ìš© ë¡œê·¸
+
+			// ì‘ë‹µë¶€
+			req.setAttribute("output", rlist);// ì‘ë‹µê°ì²´ì— ì €ì¥
+			RequestDispatcher view // ìë°”í˜ì´ì§€ë¡œ ì‘ë‹µê°ì²´ ìƒì„±
 					= req.getRequestDispatcher("/task/user/BookAction_List.jsp");
-			view.forward(req, res);	//ÀÀ´äÇÏ¿© Æ÷¿öµù (¸ñÀûÁö °æ·Î Æ¯¼ö¹®ÀÚ ±İÁö)
+			view.forward(req, res); // ì‘ë‹µí•˜ì—¬ í¬ì›Œë”© (ëª©ì ì§€ ê²½ë¡œ íŠ¹ìˆ˜ë¬¸ì ê¸ˆì§€)
 		}
-		/*ÀÔ·Â*/
-		else if("insert".equals(pMap.get("command").toString())) {
-			
+		/* ì…ë ¥ */
+		else if ("insert".equals(pMap.get("command").toString())) {
+
 		}
-		/*¼öÁ¤*/
-		else if("update".equals(pMap.get("command").toString())) {
-			
+		/* ìˆ˜ì • */
+		else if ("update".equals(pMap.get("command").toString())) {
+
 		}
-		/*»èÁ¦*/
-		else if("delete".equals(pMap.get("command").toString())) {
-			
+		/* ì‚­ì œ */
+		else if ("delete".equals(pMap.get("command").toString())) {
+
+		} else {
+			logger.info("ì˜¤íƒ€ê°€ ìƒê²¼ìŠ´ë©”!!!");
 		}
-		else {
-			logger.info("¿ÀÅ¸°¡ »ı°å½¿¸Ş!!!");
-		}
-		////end : if-else if-else
-	}////////////end : doJudge()
-	
-	//´ÜÀ§Å×½ºÆ® : ¼­ºí¸´È£Ãâ È®ÀÎ¿ë ¸Ş¼Òµå
-	public void doTest(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException
-	{
+		//// end : if-else if-else
+	}//////////// end : doJudge()
+
+	// ë‹¨ìœ„í…ŒìŠ¤íŠ¸ : ì„œë¸”ë¦¿í˜¸ì¶œ í™•ì¸ìš© ë©”ì†Œë“œ
+	public void doTest(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html;charset=euc-kr");
 		out.print("--Called--");
 	}
+
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
-		throws ServletException, IOException
-	{
-		doJudge(req,res);
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		doJudge(req, res);
 	}
+
 	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse res)
-		throws ServletException, IOException
-	{
-		//doTest(req,res);//´ÜÀ§Å×½ºÆ®¿Ï·á
-		doJudge(req,res);
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		// doTest(req,res);//ë‹¨ìœ„í…ŒìŠ¤íŠ¸ì™„ë£Œ
+		doJudge(req, res);
 	}
-	
+
 }

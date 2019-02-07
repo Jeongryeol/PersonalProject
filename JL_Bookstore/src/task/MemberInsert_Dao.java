@@ -6,46 +6,53 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
 import db.connection.DBConnection;
+
 /************************************************************
- * 	@author ÀÌÁ¤·Ä(Jeongryeol Lee)
- *  @email	duxbellorn@gmail.com
- *  @GitHub	https://github.com/Jeongryeol
- * 	@last	2018.08.02
- * 	@comment
- * 	È¸¿ø¿¡ ´ëÇÏ¿© ÀÔ·Â¾÷¹«¸¦ Ã³¸®ÇÏ´Â Data Access Object
+ * @author ì´ì •ë ¬(Jeongryeol Lee)
+ * @email duxbellorn@gmail.com
+ * @GitHub https://github.com/Jeongryeol
+ * @last 2018.08.02
+ * @comment
+ * 			íšŒì›ì— ëŒ€í•˜ì—¬ ì…ë ¥ì—…ë¬´ë¥¼ ì²˜ë¦¬í•˜ëŠ” Data Access Object
  ************************************************************/
 public class MemberInsert_Dao {
-	//·Î±×ÁØºñ
+
+	// ë¡œê·¸ì¤€ë¹„
 	Logger logger = Logger.getLogger(MemberInsert_Dao.class);
-	//MyBatis Ä¿³Ø¼ÇÇ® ºÒ·¯¿À±â
-	DBConnection dbcon	= null; //DB¿¬°á °øÅëÅ¬·¡½º
-	SqlSession	 sqlSes	= null;	//¿¬°á¿¡ ´ëÇÑ ¸ğµç Á¤º¸°¡ ´ã±ä °´Ã¼
+
+	// MyBatis ì»¤ë„¥ì…˜í’€ ë¶ˆëŸ¬ì˜¤ê¸°
+	DBConnection dbcon = null; // DBì—°ê²° ê³µí†µí´ë˜ìŠ¤
+
+	SqlSession sqlSes = null; // ì—°ê²°ì— ëŒ€í•œ ëª¨ë“  ì •ë³´ê°€ ë‹´ê¸´ ê°ì²´
 
 	/********************************************************
-	 * [[ INSERT :: ÀÔ·Â¾÷¹« ±âº»²Ã ]]
-	 * @param (Map<String,Object>)pMap : Front(Web|App)¿¡¼­ ÀÔ·ÂÇÑ µ¥ÀÌÅÍ
-	 * 	WebContent/task/SignUp.jsp·ÎºÎÅÍ ³Ñ¾î¿È
-	 * 	
-	 * @return (int)result : ÀÔ·Â ¼º°ø½Ã 1, ½ÇÆĞ½Ã0
-	 * 	WebContent/task/result.jsp·Î ³Ñ¾î°¨
+	 * [[ INSERT :: ì…ë ¥ì—…ë¬´ ê¸°ë³¸ê¼´ ]]
+	 * 
+	 * @param (Map<String,Object>)pMap
+	 *            : Front(Web|App)ì—ì„œ ì…ë ¥í•œ ë°ì´í„°
+	 *            WebContent/task/SignUp.jspë¡œë¶€í„° ë„˜ì–´ì˜´
+	 * 
+	 * @return (int)result : ì…ë ¥ ì„±ê³µì‹œ 1, ì‹¤íŒ¨ì‹œ0
+	 *         WebContent/task/result.jspë¡œ ë„˜ì–´ê°
 	 ********************************************************/
-	public int memeberInsert(Map<String,Object> pMap) {
-		logger.info("MemberInsert_Dao : memberInsert() È£Ãâ¼º°ø");//È®ÀÎ¿ë
-		logger.info("pMap = "+pMap);
-		//³Ñ¾î¿Í¾ßÇÏ´Â °ª : 
-		
-		//¿¬°áÁ¤º¸»ı¼º
-		dbcon	= new DBConnection();	//DB¿¬°á °øÅëÅ¬·¡½º ÀÎ½ºÅÏ½ºº¯¼ö
-		sqlSes	= dbcon.getConnection();//¿¬°á°´Ã¼ »ı¼º
-		
-		int result = 0;//¹İÈ¯¿ë ¼ıÀÚº¯¼ö ÁØºñ
+	public int memeberInsert(Map<String, Object> pMap) {
+
+		logger.info("MemberInsert_Dao : memberInsert() í˜¸ì¶œì„±ê³µ");// í™•ì¸ìš©
+		logger.info("pMap = " + pMap);
+		// ë„˜ì–´ì™€ì•¼í•˜ëŠ” ê°’ :
+
+		// ì—°ê²°ì •ë³´ìƒì„±
+		dbcon = new DBConnection(); // DBì—°ê²° ê³µí†µí´ë˜ìŠ¤ ì¸ìŠ¤í„´ìŠ¤ë³€ìˆ˜
+		sqlSes = dbcon.getConnection();// ì—°ê²°ê°ì²´ ìƒì„±
+
+		int result = 0;// ë°˜í™˜ìš© ìˆ«ìë³€ìˆ˜ ì¤€ë¹„
 		try {
 			result = sqlSes.insert("insert_Mem", pMap);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.info(e.toString());
 		}
-		
+
 		return result;
 	}
 }

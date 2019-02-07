@@ -1,6 +1,5 @@
 package task;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,53 +7,60 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
 import db.connection.DBConnection;
+
 /************************************************************
- * 	@author ÀÌÁ¤·Ä(Jeongryeol Lee)
- *  @email	duxbellorn@gmail.com
- *  @GitHub	https://github.com/Jeongryeol
- * 	@last	2018.07.30
- * 	@comment
- * 	Á¶È¸¾÷¹«¸¦  Ã³¸®ÇÏ´Â Data Access Object
- * 	
+ * @author ì´ì •ë ¬(Jeongryeol Lee)
+ * @email duxbellorn@gmail.com
+ * @GitHub https://github.com/Jeongryeol
+ * @last 2018.07.30
+ * @comment
+ * 			ì¡°íšŒì—…ë¬´ë¥¼ ì²˜ë¦¬í•˜ëŠ” Data Access Object
+ * 
  ************************************************************/
 public class BookSelect_Dao {
-	//·Î±×¸¦ Âï´Â loj4jÀÇ ·Î°Å »ç¿ëÇÏ±â
+
+	// ë¡œê·¸ë¥¼ ì°ëŠ” loj4jì˜ ë¡œê±° ì‚¬ìš©í•˜ê¸°
 	Logger logger = Logger.getLogger(BookSelect_Dao.class);
-	//DB¿¬°áÇÏ±â
-	DBConnection dbcon	= null; //DB¿¬°á °øÅëÅ¬·¡½º
-	SqlSession	 sqlSes	= null;	//¿¬°á¿¡ ´ëÇÑ ¸ğµç Á¤º¸°¡ ´ã±ä °´Ã¼
-	
+
+	// DBì—°ê²°í•˜ê¸°
+	DBConnection dbcon = null; // DBì—°ê²° ê³µí†µí´ë˜ìŠ¤
+
+	SqlSession sqlSes = null; // ì—°ê²°ì— ëŒ€í•œ ëª¨ë“  ì •ë³´ê°€ ë‹´ê¸´ ê°ì²´
+
 	/********************************************************
-	 * [[ SELECT :: Á¶È¸¾÷¹« ±âº»²Ã ]]
-	 * @param pMap : Front(Web|App)¿¡¼­ ÀÔ·ÂÇÑ µ¥ÀÌÅÍ
-	 * 	À§ ÆÄ¶ó¹ÌÅÍ µ¥ÀÌÅÍ´Â ¾Æ·¡ °æ·ÎÀÇ jspÆÄÀÏ·ÎºÎÅÍ ³Ñ¾î¿È
-	 * 	WebContent/_task/user/BookAction_List.jsp
-	 * @return rlist : Back(DB)¿¡¼­ Á¶È¸ÇÑ µ¥ÀÌÅÍ
-	 * 	ListÅ¸ÀÔ¿¡ °¢ ·Î¿ì Á¤º¸°¡ Map<¾Ë¶ó¾î½ºÄÃ·³¸í,·Î¿ì°ª>À¸·Î ÀúÀå)
-	 * 	¸®ÅÏµÈ µ¥ÀÌÅÍ´Â ¾Æ·¡ °æ·ÎÀÇ jspÆÄÀÏ¿¡¼­ »ç¿ëµÊ
-	 * 	WebContent/_task/user/BookAction_List.jsp
+	 * [[ SELECT :: ì¡°íšŒì—…ë¬´ ê¸°ë³¸ê¼´ ]]
+	 * 
+	 * @param pMap
+	 *            : Front(Web|App)ì—ì„œ ì…ë ¥í•œ ë°ì´í„°
+	 *            ìœ„ íŒŒë¼ë¯¸í„° ë°ì´í„°ëŠ” ì•„ë˜ ê²½ë¡œì˜ jspíŒŒì¼ë¡œë¶€í„° ë„˜ì–´ì˜´
+	 *            WebContent/_task/user/BookAction_List.jsp
+	 * @return rlist : Back(DB)ì—ì„œ ì¡°íšŒí•œ ë°ì´í„°
+	 *         Listíƒ€ì…ì— ê° ë¡œìš° ì •ë³´ê°€ Map<ì•Œë¼ì–´ìŠ¤ì»¬ëŸ¼ëª…,ë¡œìš°ê°’>ìœ¼ë¡œ ì €ì¥)
+	 *         ë¦¬í„´ëœ ë°ì´í„°ëŠ” ì•„ë˜ ê²½ë¡œì˜ jspíŒŒì¼ì—ì„œ ì‚¬ìš©ë¨
+	 *         WebContent/_task/user/BookAction_List.jsp
 	 ********************************************************/
-	public List<Map<String,Object>> getDataList(Map<String,Object> pMap){
-		logger.info("getDataList È£Ãâ ¼º°ø");//È®ÀÎ¿ë ·Î±×
-		//³Ñ¾î¿Â MapÀ¸·ÎºÎÅÍ userInputÀÇ °ª È®ÀÎÇÏ±â
-		//logger.info("pMap.get('userInput') = "+pMap.get("userInput"));
-		
-		dbcon  = new DBConnection();//DB¿¬°á °øÅëÅ¬·¡½º ÀÎ½ºÅÏ½ºº¯¼ö
-		sqlSes = dbcon.getConnection();//¿¬°á°´Ã¼ °»¼º
-		
-		List<Map<String,Object>> rlist = null;//DBÁ¶È¸°á°ú ¹İÈ¯ÇÏ´Â List
+	public List<Map<String, Object>> getDataList(Map<String, Object> pMap) {
+
+		logger.info("getDataList í˜¸ì¶œ ì„±ê³µ");// í™•ì¸ìš© ë¡œê·¸
+		// ë„˜ì–´ì˜¨ Mapìœ¼ë¡œë¶€í„° userInputì˜ ê°’ í™•ì¸í•˜ê¸°
+		// logger.info("pMap.get('userInput') = "+pMap.get("userInput"));
+
+		dbcon = new DBConnection();// DBì—°ê²° ê³µí†µí´ë˜ìŠ¤ ì¸ìŠ¤í„´ìŠ¤ë³€ìˆ˜
+		sqlSes = dbcon.getConnection();// ì—°ê²°ê°ì²´ ê°±ì„±
+
+		List<Map<String, Object>> rlist = null;// DBì¡°íšŒê²°ê³¼ ë°˜í™˜í•˜ëŠ” List
 		System.out.println(pMap);
 		try {
-			//´ÜÀ§Å×½ºÆ®
-			//pMap = new HashMap<String,Object>();
-			//pMap.put("userInput","ÀÚ");//rlist=2 È®ÀÎ¿Ï·á
-			rlist = sqlSes.selectList("select_Nm_Au",pMap);
-			//logger.info("[1]rlist = "+rlist.size());//È®ÀÎ¿ë ·Î±×
+			// ë‹¨ìœ„í…ŒìŠ¤íŠ¸
+			// pMap = new HashMap<String,Object>();
+			// pMap.put("userInput","ì");//rlist=2 í™•ì¸ì™„ë£Œ
+			rlist = sqlSes.selectList("select_Nm_Au", pMap);
+			// logger.info("[1]rlist = "+rlist.size());//í™•ì¸ìš© ë¡œê·¸
 		} catch (Exception e) {
-			e.printStackTrace();//¿¡·¯ÃßÀû
-			logger.info("getDataList ¿¡·¯¹ß»ı");//È®ÀÎ¿ë ·Î±×
+			e.printStackTrace();// ì—ëŸ¬ì¶”ì 
+			logger.info("getDataList ì—ëŸ¬ë°œìƒ");// í™•ì¸ìš© ë¡œê·¸
 		}
-		logger.info("getDataList Á¾·á");//È®ÀÎ¿ë ·Î±×
-		return rlist;//¹İÈ¯
+		logger.info("getDataList ì¢…ë£Œ");// í™•ì¸ìš© ë¡œê·¸
+		return rlist;// ë°˜í™˜
 	}
 }

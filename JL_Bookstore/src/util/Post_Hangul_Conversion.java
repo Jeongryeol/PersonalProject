@@ -2,23 +2,27 @@ package util;
 
 public class Post_Hangul_Conversion {
 
-	//¿µ¹® ÀÎÄÚµù Å¸ÀÔÀ¸·Î ÀĞ¾î¼­ ÇÑ±Û ÀÎÄÚµù Å¸ÀÔÀ¸·Î ÀüÈ¯
+	// ì˜ë¬¸ ì¸ì½”ë”© íƒ€ì…ìœ¼ë¡œ ì½ì–´ì„œ í•œê¸€ ì¸ì½”ë”© íƒ€ì…ìœ¼ë¡œ ì „í™˜
 	public static String toKor(String en) {
-		if(en==null) return null;
+
+		if (en == null)
+			return null;
 		try {
-			return new String(en.getBytes("8859_1"),"EUC-KR");
+			return new String(en.getBytes("8859_1"), "EUC-KR");
 		} catch (Exception e) {
 			return en;
-		} 
+		}
 	}
-	
-	//¿µ¹® ÀÎÄÚµù Å¸ÀÔÀ¸·Î ÀĞ¾î¼­ ÇÑ±Û ÀÎÄÚµù Å¸ÀÔÀ¸·Î ÀüÈ¯
+
+	// ì˜ë¬¸ ì¸ì½”ë”© íƒ€ì…ìœ¼ë¡œ ì½ì–´ì„œ í•œê¸€ ì¸ì½”ë”© íƒ€ì…ìœ¼ë¡œ ì „í™˜
 	public static String toUTF(String en) {
-		if(en==null) return null;
+
+		if (en == null)
+			return null;
 		try {
-			return new String(en.getBytes("8859_1"),"UTF-8");
+			return new String(en.getBytes("8859_1"), "UTF-8");
 		} catch (Exception e) {
 			return en;
-		} 
+		}
 	}
 }

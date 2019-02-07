@@ -8,98 +8,100 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+
 /************************************************************
- * 	@last	2018.08.02
- * 	@comment
- * 	"SignUp.jsp"(È­¸é)¿¡¼­ °¡ÀÔ ¿äÃ»ÇÑ °´Ã¼¿¡´Â ¾Æ·¡ »çÇ×ÀÌ Æ÷ÇÔµÇ¾îÀÖ¾î¾ß ÇÔ
- * 		M_ID	: ¾ÆÀÌµğ
- * 		M_EMAIL	: ÀÌ¸ŞÀÏÁÖ¼Ò
- * 		M_PW	: ºñ¹Ğ¹øÈ£
- * 		M_NAME	: ÀÌ¸§
- * 		M_GENDER: ¼ºº°
- * 		M_PHONE	: ÈŞ´ë¹øÈ£
- * 	
- * 	@author ÀÌÁ¤·Ä(Jeongryeol Lee)
- *  @email	duxbellorn@gmail.com
- *  @GitHub	https://github.com/Jeongryeol
+ * @last 2018.08.02
+ * @comment
+ * 			"SignUp.jsp"(í™”ë©´)ì—ì„œ ê°€ì… ìš”ì²­í•œ ê°ì²´ì—ëŠ” ì•„ë˜ ì‚¬í•­ì´ í¬í•¨ë˜ì–´ìˆì–´ì•¼ í•¨
+ *          M_ID : ì•„ì´ë””
+ *          M_EMAIL : ì´ë©”ì¼ì£¼ì†Œ
+ *          M_PW : ë¹„ë°€ë²ˆí˜¸
+ *          M_NAME : ì´ë¦„
+ *          M_GENDER: ì„±ë³„
+ *          M_PHONE : íœ´ëŒ€ë²ˆí˜¸
+ * 
+ * @author ì´ì •ë ¬(Jeongryeol Lee)
+ * @email duxbellorn@gmail.com
+ * @GitHub https://github.com/Jeongryeol
  ************************************************************/
 public class MemberServlet extends HttpServlet {
-	//·Î±×ÁØºñ
-	Logger logger = Logger.getLogger(MemberServlet.class);
-	
-	//¾÷¹«¸¦ ºĞ±âÇÏ´Â ¸Ş¼Òµå
-	public void doJudge(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException
-	{
-		//¿äÃ»°´Ã¼ ÆÄ¶ó¹ÌÅÍ ÃßÃâ 1 : ¸í·ÉÄ¿¸Çµå
-		String command	= req.getParameter("command");
-		String comtype	= req.getParameter("comtype");
-		logger.info("command = "+command);
-		logger.info("comtype = "+comtype);
-		//¿äÃ»°´Ã¼ÆÄ¶ó¹ÌÅÍ ÃßÃâ 2 : ÀÔ·ÂÁ¤º¸
-		String m_name	= req.getParameter("m_name");
-		String m_email	= req.getParameter("m_email");
-		String m_pw 	= req.getParameter("m_pw");
 
-		/* [[È¸¿øÁ¤º¸ ¾÷¹«ºĞ±â¹æ½Ä]]
-		 * command¿¡ µû¶ó 4°¡Áö ºĞ±âµÊ. ºĞ±âµÈ °¢ DAO¸¦ ¼±ÅÃÀûÀ¸·Î ¹Ş¾Æ¾ßÇÒ °Í
-		 * Á¶È¸¾÷¹«ÀÇ Á¾·ù : ¾ÆÀÌµğÁßº¹°Ë»ç / ºñ¹Ğ¹øÈ£ Ã£±â
+	// ë¡œê·¸ì¤€ë¹„
+	Logger logger = Logger.getLogger(MemberServlet.class);
+
+	// ì—…ë¬´ë¥¼ ë¶„ê¸°í•˜ëŠ” ë©”ì†Œë“œ
+	public void doJudge(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		// ìš”ì²­ê°ì²´ íŒŒë¼ë¯¸í„° ì¶”ì¶œ 1 : ëª…ë ¹ì»¤ë§¨ë“œ
+		String command = req.getParameter("command");
+		String comtype = req.getParameter("comtype");
+		logger.info("command = " + command);
+		logger.info("comtype = " + comtype);
+		// ìš”ì²­ê°ì²´íŒŒë¼ë¯¸í„° ì¶”ì¶œ 2 : ì…ë ¥ì •ë³´
+		String m_name = req.getParameter("m_name");
+		String m_email = req.getParameter("m_email");
+		String m_pw = req.getParameter("m_pw");
+
+		/*
+		 * [[íšŒì›ì •ë³´ ì—…ë¬´ë¶„ê¸°ë°©ì‹]]
+		 * commandì— ë”°ë¼ 4ê°€ì§€ ë¶„ê¸°ë¨. ë¶„ê¸°ëœ ê° DAOë¥¼ ì„ íƒì ìœ¼ë¡œ ë°›ì•„ì•¼í•  ê²ƒ
+		 * ì¡°íšŒì—…ë¬´ì˜ ì¢…ë¥˜ : ì•„ì´ë””ì¤‘ë³µê²€ì‚¬ / ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°
 		 */
-		//±âº»¸í·É [select] : È¸¿øÁ¤º¸ Á¶È¸
-		if("select".equals(command)) {
-			logger.info("[[¾÷¹«ºĞ±â]] command = "+command);
-			//¼¼ºÎ¸í·É [signIn] : ·Î±×ÀÎ
-			if("signIn".equals(comtype)) {
-				
+		// ê¸°ë³¸ëª…ë ¹ [select] : íšŒì›ì •ë³´ ì¡°íšŒ
+		if ("select".equals(command)) {
+			logger.info("[[ì—…ë¬´ë¶„ê¸°]] command = " + command);
+			// ì„¸ë¶€ëª…ë ¹ [signIn] : ë¡œê·¸ì¸
+			if ("signIn".equals(comtype)) {
+
 			}
-			//¼¼ºÎ¸í·É [findPW] : ºñ¹Ğ¹øÈ£Ã£±â
-			else if("findPW".equals(comtype)) {
-				
+			// ì„¸ë¶€ëª…ë ¹ [findPW] : ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°
+			else if ("findPW".equals(comtype)) {
+
 			}
-			//¼¼ºÎ¸í·ÉÁ¤º¸ È®ÀÎºÒ°¡
+			// ì„¸ë¶€ëª…ë ¹ì •ë³´ í™•ì¸ë¶ˆê°€
 			else {
-				logger.info("[[¿¡·¯»óÈ²]] MemberServlet ¾÷¹«ºĞ±â¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
-				logger.info("[[¿¡·¯»óÈ²]] command = "+command);
-				logger.info("[[¿¡·¯»óÈ²]] comtype = "+comtype);
-				return;//Á¾·á
+				logger.info("[[ì—ëŸ¬ìƒí™©]] MemberServlet ì—…ë¬´ë¶„ê¸°ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
+				logger.info("[[ì—ëŸ¬ìƒí™©]] command = " + command);
+				logger.info("[[ì—ëŸ¬ìƒí™©]] comtype = " + comtype);
+				return;// ì¢…ë£Œ
 			}
 		}
-		//±âº»¸í·É [insert] : È¸¿ø°¡ÀÔ
-		else if ("insert".equals(command)){
-			/* [[È¸¿ø°¡ÀÔ ºĞ±â°èÈ¹]]
-			 * °ü¸®ÀÚ´Â ¼­¹öÀÇ °íÀ¯ÄÚµå¸¦ ÀÔ·ÂÇßÀ»¶§ °ü¸®ÀÚµî±ŞÀ¸·Î È¸¿ø°¡ÀÔµÊ
-			 * ½Ç¹«ÀÚ´Â ÀÏ¹İÈ¸¿øÀ¸·ÎºÎÅÍ °ü¸®ÀÚÀÇ ±ÇÇÑÀ¸·Î µî±Ş¼öÁ¤
-			 * ÀÏ¹İÈ¸¿øÀº °¡ÀÔ½Ã Áßº¹°Ë»ç½Ç½Ã(ÀÌ¸ŞÀÏ,ÀÌ¸§)ÈÄ °¡ÀÔ¿Ï·á 
+		// ê¸°ë³¸ëª…ë ¹ [insert] : íšŒì›ê°€ì…
+		else if ("insert".equals(command)) {
+			/*
+			 * [[íšŒì›ê°€ì… ë¶„ê¸°ê³„íš]]
+			 * ê´€ë¦¬ìëŠ” ì„œë²„ì˜ ê³ ìœ ì½”ë“œë¥¼ ì…ë ¥í–ˆì„ë•Œ ê´€ë¦¬ìë“±ê¸‰ìœ¼ë¡œ íšŒì›ê°€ì…ë¨
+			 * ì‹¤ë¬´ìëŠ” ì¼ë°˜íšŒì›ìœ¼ë¡œë¶€í„° ê´€ë¦¬ìì˜ ê¶Œí•œìœ¼ë¡œ ë“±ê¸‰ìˆ˜ì •
+			 * ì¼ë°˜íšŒì›ì€ ê°€ì…ì‹œ ì¤‘ë³µê²€ì‚¬ì‹¤ì‹œ(ì´ë©”ì¼,ì´ë¦„)í›„ ê°€ì…ì™„ë£Œ
 			 */
 		}
-		//±âº»¸í·É [update] : È¸¿øÁ¤º¸ ¼öÁ¤
-		else if ("update".equals(command)){
-			
+		// ê¸°ë³¸ëª…ë ¹ [update] : íšŒì›ì •ë³´ ìˆ˜ì •
+		else if ("update".equals(command)) {
+
 		}
-		//±âº»¸í·É [delete] : È¸¿ø»èÁ¦ ÀÔ·Â
-		else if ("delete".equals(command)){
-			
+		// ê¸°ë³¸ëª…ë ¹ [delete] : íšŒì›ì‚­ì œ ì…ë ¥
+		else if ("delete".equals(command)) {
+
 		}
-		//±âº»¸í·É Á¤º¸ È®ÀÎ ºÒ°¡
+		// ê¸°ë³¸ëª…ë ¹ ì •ë³´ í™•ì¸ ë¶ˆê°€
 		else {
-			logger.info("[[¿¡·¯»óÈ²]] MemberServlet ¾÷¹«ºĞ±â¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
-			logger.info("[[¿¡·¯»óÈ²]] command = "+command);
-			return;//Á¾·á
+			logger.info("[[ì—ëŸ¬ìƒí™©]] MemberServlet ì—…ë¬´ë¶„ê¸°ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
+			logger.info("[[ì—ëŸ¬ìƒí™©]] command = " + command);
+			return;// ì¢…ë£Œ
 		}
 	}
-	
+
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
-		throws ServletException, IOException
-	{
-		//logger.info("MemberServlet Å¬·¡½º - doGet() ¸Ş¼Òµå È£Ãâ¼º°ø");
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		// logger.info("MemberServlet í´ë˜ìŠ¤ - doGet() ë©”ì†Œë“œ í˜¸ì¶œì„±ê³µ");
 		doJudge(req, res);
 	}
+
 	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse res)
-		throws ServletException, IOException 
-	{
-		logger.info("MemberServlet Å¬·¡½º - doPost() ¸Ş¼Òµå È£Ãâ¼º°ø");
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		logger.info("MemberServlet í´ë˜ìŠ¤ - doPost() ë©”ì†Œë“œ í˜¸ì¶œì„±ê³µ");
 		doJudge(req, res);
 	}
 }

@@ -10,51 +10,57 @@ import org.apache.log4j.Logger;
 import db.connection.DBConnection;
 
 /************************************************************
- * 	@author ÀÌÁ¤·Ä(Jeongryeol Lee)
- *  @email	duxbellorn@gmail.com
- *  @GitHub	https://github.com/Jeongryeol
- * 	@last	2018.08.03
- * 	@comment
- * 	Á¶È¸¾÷¹«¸¦  Ã³¸®ÇÏ´Â Data Access Object
- * 	
+ * @author ì´ì •ë ¬(Jeongryeol Lee)
+ * @email duxbellorn@gmail.com
+ * @GitHub https://github.com/Jeongryeol
+ * @last 2018.08.03
+ * @comment
+ * 			ì¡°íšŒì—…ë¬´ë¥¼ ì²˜ë¦¬í•˜ëŠ” Data Access Object
+ * 
  ************************************************************/
 public class MemberSelect_Dao {
-	//·Î±×¸¦ Âï´Â loj4jÀÇ ·Î°Å »ç¿ëÇÏ±â
+
+	// ë¡œê·¸ë¥¼ ì°ëŠ” loj4jì˜ ë¡œê±° ì‚¬ìš©í•˜ê¸°
 	Logger logger = Logger.getLogger(BookSelect_Dao.class);
-	//DB¿¬°áÇÏ±â
-	DBConnection dbcon	= null; //DB¿¬°á °øÅëÅ¬·¡½º
-	SqlSession	 sqlSes	= null;	//¿¬°á¿¡ ´ëÇÑ ¸ğµç Á¤º¸°¡ ´ã±ä °´Ã¼
+
+	// DBì—°ê²°í•˜ê¸°
+	DBConnection dbcon = null; // DBì—°ê²° ê³µí†µí´ë˜ìŠ¤
+
+	SqlSession sqlSes = null; // ì—°ê²°ì— ëŒ€í•œ ëª¨ë“  ì •ë³´ê°€ ë‹´ê¸´ ê°ì²´
 
 	/********************************************************
-	 * [[ loginTry :: È¸¿øÁ¤º¸Á¶È¸ ]]
-	 * @param pMap : memberServlet.jaga[¼­ºí¸´]¿¡¼­ ºĞ±â ÈÄ ³Ñ¾î¿Â MapÀÚ·á
-	 * @return boolean : ·Î±×ÀÎ ½ÂÀÎ °¡/ºÎ ¸®ÅÏ
-	 * 	
+	 * [[ loginTry :: íšŒì›ì •ë³´ì¡°íšŒ ]]
+	 * 
+	 * @param pMap
+	 *            : memberServlet.jaga[ì„œë¸”ë¦¿]ì—ì„œ ë¶„ê¸° í›„ ë„˜ì–´ì˜¨ Mapìë£Œ
+	 * @return boolean : ë¡œê·¸ì¸ ìŠ¹ì¸ ê°€/ë¶€ ë¦¬í„´
+	 * 
 	 ********************************************************/
-	public boolean loginTry(Map<String,Object> pMap){
-		logger.info("getDataList È£Ãâ ¼º°ø");//È®ÀÎ¿ë ·Î±×
-		//³Ñ¾î¿Â MapÀ¸·ÎºÎÅÍ userInputÀÇ °ª È®ÀÎÇÏ±â
-		//logger.info("pMap.get('userInput') = "+pMap.get("userInput"));
-		List<Map<String,Object>> rlist = null;//DBÁ¶È¸°á°ú¸¦ ´ãÀ» List
-		boolean isApproval = false;//·Î±×ÀÎ ½ÂÀÎ¿©ºÎ¸¦ ¹İÈ¯ÇÒ Boolean
+	public boolean loginTry(Map<String, Object> pMap) {
+
+		logger.info("getDataList í˜¸ì¶œ ì„±ê³µ");// í™•ì¸ìš© ë¡œê·¸
+		// ë„˜ì–´ì˜¨ Mapìœ¼ë¡œë¶€í„° userInputì˜ ê°’ í™•ì¸í•˜ê¸°
+		// logger.info("pMap.get('userInput') = "+pMap.get("userInput"));
+		List<Map<String, Object>> rlist = null;// DBì¡°íšŒê²°ê³¼ë¥¼ ë‹´ì„ List
+		boolean isApproval = false;// ë¡œê·¸ì¸ ìŠ¹ì¸ì—¬ë¶€ë¥¼ ë°˜í™˜í•  Boolean
 		System.out.println(pMap);
 		try {
-			//´ÜÀ§Å×½ºÆ®
-			pMap = new HashMap<String,Object>();
-			pMap.put("userInput","ÀÚ");//rlist=2 È®ÀÎ¿Ï·á
-			rlist = sqlSes.selectList("select_Nm_Au",pMap);
-			logger.info("[1]rlist = "+rlist.size());//È®ÀÎ¿ë ·Î±×
-			//°á°úÈ®ÀÎ ÈÄ ·Î±×ÀÎ ½ÂÀÎ
-			if(rlist.size()==1) {
+			// ë‹¨ìœ„í…ŒìŠ¤íŠ¸
+			pMap = new HashMap<String, Object>();
+			pMap.put("userInput", "ì");// rlist=2 í™•ì¸ì™„ë£Œ
+			rlist = sqlSes.selectList("select_Nm_Au", pMap);
+			logger.info("[1]rlist = " + rlist.size());// í™•ì¸ìš© ë¡œê·¸
+			// ê²°ê³¼í™•ì¸ í›„ ë¡œê·¸ì¸ ìŠ¹ì¸
+			if (rlist.size() == 1) {
 				isApproval = true;
-				logger.info("isApproval = "+isApproval);//È®ÀÎ¿ë ·Î±×
-				return isApproval;//¹İÈ¯
+				logger.info("isApproval = " + isApproval);// í™•ì¸ìš© ë¡œê·¸
+				return isApproval;// ë°˜í™˜
 			}
 		} catch (Exception e) {
-			e.printStackTrace();//¿¡·¯ÃßÀû
-			logger.info("getDataList ¿¡·¯¹ß»ı");//È®ÀÎ¿ë ·Î±×
+			e.printStackTrace();// ì—ëŸ¬ì¶”ì 
+			logger.info("getDataList ì—ëŸ¬ë°œìƒ");// í™•ì¸ìš© ë¡œê·¸
 		}
-		logger.info("getDataList Á¾·á");//È®ÀÎ¿ë ·Î±×
-		return isApproval;//¹İÈ¯
+		logger.info("getDataList ì¢…ë£Œ");// í™•ì¸ìš© ë¡œê·¸
+		return isApproval;// ë°˜í™˜
 	}
 }

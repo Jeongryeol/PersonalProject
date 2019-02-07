@@ -4,38 +4,42 @@ import java.util.Enumeration;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
 /*
- * °øÅëÄÚµå¸¦ ÀÛ¼ºÇØº¾½Ã´Ù
- * 	1)ÆÄ¶ó¹ÌÅÍ°¡ ÇÊ¿äÇÏ´Ù.
- * 		-´©°¡ ¾ğÁ¦ ¾î¶² Å¬·¡½º¿¡¼­ ÀÎ½ºÅÏ½ºÈ­ ÇØ¾ßÇÏ´Â °ÍÀÎ°¡?
- * 		-¾î¶² ½ÃÁ¡¿¡¼­ ÇÊ¿äÇÑ °ÍÀÏ±î?
- *  
+ * ê³µí†µì½”ë“œë¥¼ ì‘ì„±í•´ë´…ì‹œë‹¤
+ * 1)íŒŒë¼ë¯¸í„°ê°€ í•„ìš”í•˜ë‹¤.
+ * -ëˆ„ê°€ ì–¸ì œ ì–´ë–¤ í´ë˜ìŠ¤ì—ì„œ ì¸ìŠ¤í„´ìŠ¤í™” í•´ì•¼í•˜ëŠ” ê²ƒì¸ê°€?
+ * -ì–´ë–¤ ì‹œì ì—ì„œ í•„ìš”í•œ ê²ƒì¼ê¹Œ?
  */
 public class HashMapBinder {
-	//¿äÃ»°´Ã¼ ÁØºñ
+
+	// ìš”ì²­ê°ì²´ ì¤€ë¹„
 	HttpServletRequest req = null;
-	
-	//»ı¼ºÀÚ¸¦ ÅëÇØ¼­ ÀÌ Å¬·¡½º(HashMapBinder)¸¦ ÀÎ½ºÅÏ½ºÈ­ÇÒ¶§,
-	//¿äÃ»°´Ã¼(request)ÀÇ ¿øº»ÁÖ¼Ò¸¦ ¹Ş¾Æ ÀúÀåÇØµÒ
+
+	// ìƒì„±ìë¥¼ í†µí•´ì„œ ì´ í´ë˜ìŠ¤(HashMapBinder)ë¥¼ ì¸ìŠ¤í„´ìŠ¤í™”í• ë•Œ,
+	// ìš”ì²­ê°ì²´(request)ì˜ ì›ë³¸ì£¼ì†Œë¥¼ ë°›ì•„ ì €ì¥í•´ë‘ 
 	public HashMapBinder(HttpServletRequest req) {
+
 		this.req = req;
 	}
-	
-	//Web¿¡¼­ º¸³»¿ë ¿äÃ»°´Ã¼ÀÇ ÀÚ·á¸¦ DB¿¡ º¸³¾ Map°è¿­ ÀÚ·áÇüÀ¸·Î ¿Å°Ü´ãÀ½  
-	public void bind(Map<String,Object> pMap){
-		//ÀÚ·áÇü ÃÊ±âÈ­
+
+	// Webì—ì„œ ë³´ë‚´ìš© ìš”ì²­ê°ì²´ì˜ ìë£Œë¥¼ DBì— ë³´ë‚¼ Mapê³„ì—´ ìë£Œí˜•ìœ¼ë¡œ ì˜®ê²¨ë‹´ìŒ
+	public void bind(Map<String, Object> pMap) {
+
+		// ìë£Œí˜• ì´ˆê¸°í™”
 		pMap.clear();
-		/* Enumeration´Â ÀÚ¹Ù ÃÊ±â¹öÀü¿¡ °³¹ßµÈ ÀÎÅÍÆäÀÌ½º·Î
-		 * °´Ã¼µéÀÇ ÁıÇÕ(Vector)ÀÇ °´Ã¼µéÀ» ÇÏ³ª¾¿ ¼ø¼­´ë·Î ´ã¾Æ Ã³¸®ÇÒ ¼ö ÀÖ´Â ¸Ş¼Òµå¸¦ Á¦°øÇÏ´Â ÄÌ·º¼ÇÀÌ´Ù. */
-		Enumeration<String> en
-				= req.getParameterNames();//name¼Ó¼ºÀ¸·Î µÈ ¸ğµç ³»¿ëÀ» ¼ø¼­´ë·Î ´ãÀ½
-		//ÀÚ·áÇü ÀÏ°ıÀúÀå
-		while(en.hasMoreElements()) {
-				//¿¡´º¸Ö·¹ÀÌ¼Ç¿¡ ´ã±ä ¼Ó¼º°ª(name)À» Å°(key)·Î ´ãÀ½
+		/*
+		 * EnumerationëŠ” ìë°” ì´ˆê¸°ë²„ì „ì— ê°œë°œëœ ì¸í„°í˜ì´ìŠ¤ë¡œ
+		 * ê°ì²´ë“¤ì˜ ì§‘í•©(Vector)ì˜ ê°ì²´ë“¤ì„ í•˜ë‚˜ì”© ìˆœì„œëŒ€ë¡œ ë‹´ì•„ ì²˜ë¦¬í•  ìˆ˜ ìˆëŠ” ë©”ì†Œë“œë¥¼ ì œê³µí•˜ëŠ” ì¼ˆë ‰ì…˜ì´ë‹¤.
+		 */
+		Enumeration<String> en = req.getParameterNames();// nameì†ì„±ìœ¼ë¡œ ëœ ëª¨ë“  ë‚´ìš©ì„ ìˆœì„œëŒ€ë¡œ ë‹´ìŒ
+		// ìë£Œí˜• ì¼ê´„ì €ì¥
+		while (en.hasMoreElements()) {
+			// ì—ë‰´ë©€ë ˆì´ì…˜ì— ë‹´ê¸´ ì†ì„±ê°’(name)ì„ í‚¤(key)ë¡œ ë‹´ìŒ
 			String key = en.nextElement();
-				//Å°(key)¿Í Å°¿¡ µû¶ó ´ã°íÀÖ´Â °ª(value)À» Map¿¡ ´ãÀ½ (ÇÑ±ÛÀÎÄÚµù Ãß°¡)
-			//pMap.put(key,Post_Hangul_Conversion.toKor(req.getParameter(key)));
-			pMap.put(key,req.getParameter(key));
+			// í‚¤(key)ì™€ í‚¤ì— ë”°ë¼ ë‹´ê³ ìˆëŠ” ê°’(value)ì„ Mapì— ë‹´ìŒ (í•œê¸€ì¸ì½”ë”© ì¶”ê°€)
+			// pMap.put(key,Post_Hangul_Conversion.toKor(req.getParameter(key)));
+			pMap.put(key, req.getParameter(key));
 		}
 	}
 }
